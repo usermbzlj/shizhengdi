@@ -1,0 +1,7 @@
+[
+  { "name": "ic-past", "dpr": 2, "year": 211.5, "center": [112.5, 31], "zoom": 5.0, "clip": { "x": 440, "y": 250, "width": 560, "height": 400 }, "wait": 1800 },
+  { "name": "ic-minor", "dpr": 2, "year": 214.62, "center": [103.9, 30.6], "zoom": 6.4, "clip": { "x": 520, "y": 300, "width": 400, "height": 300 }, "wait": 1800 },
+  { "name": "ic-timeline", "dpr": 2, "year": 208.96, "center": [113.6, 30.6], "zoom": 5.0, "clip": { "x": 0, "y": 790, "width": 1440, "height": 110 }, "wait": 1500 },
+  { "name": "ic-arrow", "dpr": 2, "year": 208.8, "center": [113.2, 30.3], "zoom": 6.0, "clip": { "x": 400, "y": 250, "width": 640, "height": 400 }, "wait": 1800 },
+  { "name": "ic-arrow-dark", "theme": "dark", "dpr": 2, "year": 208.8, "center": [113.2, 30.3], "zoom": 6.0, "clip": { "x": 400, "y": 250, "width": 640, "height": 400 }, "wait": 1800 }
+]

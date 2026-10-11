@@ -1,0 +1,9 @@
+[
+  { "name": "zs-40", "dpr": 1.5, "year": 208.97, "center": [113.6, 30.6], "zoom": 4.0, "clip": { "x": 400, "y": 230, "width": 640, "height": 400 }, "wait": 1800 },
+  { "name": "zs-41", "dpr": 1.5, "year": 208.97, "center": [113.6, 30.6], "zoom": 4.1, "clip": { "x": 400, "y": 230, "width": 640, "height": 400 }, "wait": 1800 },
+  { "name": "zs-43", "dpr": 1.5, "year": 208.97, "center": [113.6, 30.6], "zoom": 4.3, "clip": { "x": 400, "y": 230, "width": 640, "height": 400 }, "wait": 1800 },
+  { "name": "zs-50", "dpr": 1.5, "year": 208.97, "center": [113.6, 30.6], "zoom": 5.0, "clip": { "x": 400, "y": 230, "width": 640, "height": 400 }, "wait": 1800 },
+  { "name": "zs-past", "dpr": 2, "year": 210.2, "center": [113.4, 30.3], "zoom": 6.2, "clip": { "x": 480, "y": 290, "width": 480, "height": 320 }, "wait": 1800 },
+  { "name": "zs-past5", "dpr": 2, "year": 211.5, "center": [112.5, 31], "zoom": 5.0, "clip": { "x": 440, "y": 250, "width": 560, "height": 400 }, "wait": 1800 },
+  { "name": "zs-anim", "dpr": 1.5, "year": 208.97, "center": [113.6, 30.6], "zoom": 4.4, "clip": { "x": 400, "y": 230, "width": 640, "height": 400 }, "eval": "window.__map.easeTo({ zoom: 7.4, duration: 2000 })", "frames": [{ "at": 250, "suffix": "a" }, { "at": 700, "suffix": "b" }, { "at": 1200, "suffix": "c" }, { "at": 1700, "suffix": "d" }], "wait": 800 }
+]

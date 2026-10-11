@@ -1,0 +1,5 @@
+[
+  { "name": "208-national-b", "year": 208.9, "center": [110, 31.5], "zoom": 4.4 },
+  { "name": "196-b", "year": 196.2, "center": [112.5, 34.4], "zoom": 5.8 },
+  { "name": "guide-step", "year": 184.2, "center": [112, 33], "zoom": 4.6, "eval": "document.querySelector('.guide-btn').click()", "wait": 9000 }
+]

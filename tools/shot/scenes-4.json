@@ -1,0 +1,9 @@
+[
+  { "name": "card-war", "year": 208.97, "center": [113.9, 29.9], "zoom": 5.4, "panel": { "kind": "event", "id": "chibi_zhizhan" }, "wait": 2500 },
+  { "name": "card-polity", "year": 220.8, "center": [114, 34], "zoom": 5.4, "panel": { "kind": "event", "id": "caopi_daihan" }, "wait": 2500 },
+  { "name": "card-civic", "year": 268.5, "center": [112.6, 34.7], "zoom": 5.4, "panel": { "kind": "event", "id": "law-taishilv-268" }, "wait": 2500 },
+  { "name": "card-culture", "year": 196.5, "center": [114.3, 36.3], "zoom": 5.4, "panel": { "kind": "event", "id": "cul-jianan-wenxue" }, "wait": 2500 },
+  { "name": "catchup", "year": 184.3, "center": [110, 32], "zoom": 4.4, "eval": "window.__store.setState({ target: 222.5 })", "wait": 1800 },
+  { "name": "globe", "year": 222.5, "center": [106, 30], "zoom": 2.4, "wait": 1500 },
+  { "name": "guide-right", "year": 184.2, "center": [112, 33], "zoom": 4.6, "eval": "document.querySelector('.guide-btn').click()", "wait": 7000 }
+]

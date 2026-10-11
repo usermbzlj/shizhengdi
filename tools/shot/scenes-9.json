@@ -1,0 +1,4 @@
+[
+  { "name": "card-war", "year": 208.97, "center": [113.9, 29.9], "zoom": 5.4, "panel": { "kind": "event", "id": "chibi_zhizhan" }, "wait": 2500 },
+  { "name": "card-civic", "year": 220.5, "center": [113.9, 34.0], "zoom": 5.4, "panel": { "kind": "event", "id": "inst-jiupin-220" }, "wait": 2500 }
+]

@@ -1,0 +1,343 @@
+.scene-diagram {
+  --sd-accent: #9b5344;
+  --sd-ink: #302c26;
+  --sd-muted: #777268;
+  --sd-surface: #fbf8f1;
+  --sd-node: #f0ece3;
+  --sd-line: #dcd6ca;
+  --sd-water: #e1e9e7;
+  --sd-water-line: #b7cfcb;
+  --sd-opponent: #eee0d9;
+  border: 1px solid var(--sd-line);
+  border-radius: 18px;
+  padding: 18px;
+  background: var(--sd-surface);
+  color: var(--sd-ink);
+  overflow: hidden;
+  font-family: var(--sans, sans-serif);
+}
+.scene-diagram--jiupin {
+  --sd-accent: #806038;
+  --sd-opponent: #eee4d5;
+}
+.scene-diagram--yinping {
+  --sd-accent: #496d59;
+  --sd-opponent: #e1e8de;
+}
+[data-theme="dark"] .scene-diagram {
+  --sd-accent: #db9b87;
+  --sd-ink: #eee6d8;
+  --sd-muted: #b2aa9d;
+  --sd-surface: #20241f;
+  --sd-node: #30342c;
+  --sd-line: #45483c;
+  --sd-water: #2b3d3c;
+  --sd-water-line: #42605b;
+  --sd-opponent: #44372e;
+}
+[data-theme="dark"] .scene-diagram--jiupin {
+  --sd-accent: #d8b37e;
+}
+[data-theme="dark"] .scene-diagram--yinping {
+  --sd-accent: #a3c7ae;
+}
+.scene-diagram-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 13px;
+}
+.scene-diagram-heading > span {
+  font: 600 17px/1.4 var(--serif, serif);
+  letter-spacing: 0.03em;
+}
+.scene-diagram-heading > small {
+  color: var(--sd-muted);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.scene-diagram-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3px;
+  gap: 3px;
+  border-radius: 12px;
+  background: var(--sd-node);
+}
+.scene-diagram-tabs > button {
+  min-height: 44px;
+  padding: 9px 5px;
+  border-radius: 9px;
+  color: var(--sd-muted);
+  font-size: 12px;
+  line-height: 1.5;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.scene-diagram-tabs > button[aria-pressed="true"] {
+  background: var(--sd-surface);
+  color: var(--sd-accent);
+  box-shadow: 0 2px 7px #00000008;
+  font-weight: 600;
+}
+.scene-diagram-tabs > button:hover {
+  color: var(--sd-ink);
+}
+.scene-diagram-tabs > button:focus-visible {
+  outline: 2px solid var(--sd-accent);
+  outline-offset: 3px;
+}
+.scene-diagram-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 16px 0 10px;
+  overflow: visible;
+  color: var(--sd-accent);
+}
+.scene-diagram-canvas text {
+  fill: var(--sd-ink);
+  text-anchor: middle;
+  font-family: var(--sans, sans-serif);
+}
+.scene-diagram-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+.scene-diagram-label {
+  font-size: 11px;
+}
+.scene-diagram-canvas .scene-diagram-label--accent {
+  fill: var(--sd-accent);
+  font-weight: 600;
+}
+.scene-diagram-note-svg {
+  font-size: 11px;
+}
+.scene-diagram-node {
+  fill: var(--sd-node);
+  stroke: var(--sd-line);
+}
+.scene-diagram-node--opponent {
+  fill: var(--sd-opponent);
+}
+.scene-diagram-arrow {
+  fill: none;
+  stroke: var(--sd-accent);
+  stroke-width: 1.6;
+}
+.scene-diagram-leader {
+  fill: none;
+  stroke: var(--sd-line);
+  stroke-width: 1.4;
+}
+.scene-diagram-alliance {
+  fill: none;
+  stroke: var(--sd-accent);
+  stroke-width: 1.5;
+}
+.scene-diagram-pill {
+  fill: var(--sd-surface);
+}
+.scene-diagram-confluence {
+  fill: var(--sd-surface);
+  stroke: var(--sd-accent);
+  stroke-width: 1.2;
+}
+.scene-diagram-water {
+  fill: var(--sd-water);
+}
+.scene-diagram-water-line {
+  stroke: var(--sd-water-line);
+  stroke-width: 0.7;
+}
+.scene-diagram-boat {
+  fill: var(--sd-ink);
+}
+.scene-diagram-fire {
+  fill: var(--sd-accent);
+}
+.scene-diagram-explanation {
+  margin: 12px 0 0;
+  font-size: 12px;
+  line-height: 1.85;
+  color: var(--sd-ink);
+}
+.scene-diagram-caption {
+  margin: 10px 0 0;
+  color: var(--sd-muted);
+  font-size: 10px;
+  line-height: 1.7;
+}
+.scene-diagram-process {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+.scene-diagram-process-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 27px 1fr;
+  column-gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid var(--sd-line);
+  border-radius: 11px;
+  background: var(--sd-surface);
+}
+.scene-diagram-process-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 25px;
+  top: calc(100% + 4px);
+  height: 9px;
+  border-left: 1px solid var(--sd-accent);
+}
+.scene-diagram-process-step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 23px;
+  top: calc(100% + 9px);
+  width: 5px;
+  height: 5px;
+  border-right: 1px solid var(--sd-accent);
+  border-bottom: 1px solid var(--sd-accent);
+  transform: rotate(45deg);
+}
+.scene-diagram-process-step--current {
+  border-color: var(--sd-accent);
+  background: color-mix(in srgb, var(--sd-accent) 5%, var(--sd-surface));
+}
+.scene-diagram-step-number {
+  color: var(--sd-accent);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.scene-diagram-process-step strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.scene-diagram-process-step small {
+  display: block;
+  color: var(--sd-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+.scene-diagram-ranks {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+  padding-top: 8px;
+}
+.scene-diagram-ranks > span {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-height: 23px;
+  min-width: 0;
+  border-radius: 4px;
+  background: var(--sd-node);
+  color: var(--sd-muted);
+  font-size: 9px;
+}
+.scene-diagram-distinction {
+  display: grid;
+  grid-template-columns: 1fr 26px 1fr;
+  align-items: center;
+  gap: 6px;
+  border-top: 1px solid var(--sd-line);
+  padding-top: 13px;
+  text-align: center;
+}
+.scene-diagram-distinction > span {
+  font: 500 17px/1.4 var(--serif, serif);
+}
+.scene-diagram-distinction > b {
+  color: var(--sd-accent);
+  font-size: 22px;
+  font-weight: 400;
+}
+.scene-diagram-distinction > small {
+  grid-column: 1 / -1;
+  color: var(--sd-muted);
+  font-size: 10px;
+  line-height: 1.8;
+}
+.scene-diagram-mountains {
+  fill: none;
+  stroke: var(--sd-line);
+  stroke-width: 1;
+}
+.scene-diagram-route {
+  fill: none;
+  stroke: var(--sd-line);
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition:
+    stroke 0.2s,
+    stroke-width 0.2s;
+}
+.scene-diagram-route--detour {
+  stroke-dasharray: 4 5;
+}
+.scene-diagram-route--active {
+  stroke: var(--sd-accent);
+  stroke-width: 2.7;
+}
+.scene-diagram-dot {
+  fill: var(--sd-surface);
+  stroke: var(--sd-muted);
+  stroke-width: 1.5;
+}
+.scene-diagram-dot--destination {
+  fill: var(--sd-accent);
+  stroke: var(--sd-surface);
+}
+.scene-diagram-barrier {
+  fill: none;
+  stroke: var(--sd-accent);
+  stroke-width: 2;
+}
+.scene-diagram-route-facts {
+  border-left: 2px solid var(--sd-accent);
+  padding-left: 12px;
+}
+.scene-diagram-route-facts > strong {
+  font-size: 12px;
+  color: var(--sd-accent);
+  font-weight: 600;
+}
+.scene-diagram-route-facts > p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  line-height: 1.85;
+}
+@media (max-width: 380px) {
+  .scene-diagram {
+    padding: 14px;
+  }
+  .scene-diagram-heading > span {
+    font-size: 16px;
+  }
+  .scene-diagram-process-step {
+    padding: 9px;
+    column-gap: 7px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene-diagram-tabs > button,
+  .scene-diagram-route {
+    transition: none;
+  }
+}

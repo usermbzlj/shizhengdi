@@ -1,0 +1,26 @@
+[
+  {
+    "name": "guandu2",
+    "year": 200.5,
+    "center": [114.4, 35.2],
+    "zoom": 7,
+    "settle": 3000,
+    "clip": { "x": 300, "y": 250, "width": 520, "height": 340 },
+    "eval": "window.__store.setState({ target: 201.2 })",
+    "frames": [
+      { "at": 600, "suffix": "a" },
+      { "at": 1800, "suffix": "b" },
+      { "at": 3200, "suffix": "c" }
+    ],
+    "wait": 200
+  },
+  {
+    "name": "front",
+    "year": 208.14,
+    "center": [113.2, 31.6],
+    "zoom": 6.6,
+    "settle": 3000,
+    "clip": { "x": 360, "y": 300, "width": 560, "height": 340 },
+    "wait": 200
+  }
+]

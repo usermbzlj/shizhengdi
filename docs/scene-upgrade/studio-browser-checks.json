@@ -1,0 +1,890 @@
+{
+  "version": "SceneStudio",
+  "date": "2026-09-30",
+  "environment": "Production preview 127.0.0.1:4173, Codex in-app browser",
+  "finalBuild": "/assets/index-DLu3tH1B.js",
+  "notes": "UI actions and read-only DOM measurements. Before-mobile-tab-refinement records 40px mobile tabs; final-mobile-tab-refinement confirms the corrected 44px touch targets. Inert is verified via DOM attributes in final entries because the read-only evaluator omits HTMLElement.inert properties. Viewport emulation does not verify real device performance.",
+  "checks": [
+    {
+      "test": "chibi-fire-view",
+      "dom": {
+        "horizontalOverflow": false,
+        "pressed": [
+          "火攻",
+          "江面",
+          "04火攻条件↗",
+          "读地点",
+          "江面↗"
+        ],
+        "view": "research"
+      }
+    },
+    {
+      "test": "chibi-research-to-map",
+      "dom": {
+        "focus": "赤壁之战",
+        "mapClass": "map maplibregl-map z-high",
+        "note": "从研究台来到地图让地形替你回答。拖动或缩放地图，观察河流、关口与周围地势。把研究台中的关系，放回真实的空间。读图线索沿长江寻找江陵、赤壁和夏口：水路既能阻隔，也能送来军队。带着问题，回到研究台 路线和位置为教学示意，疆域为大致控制范围。",
+        "view": "map"
+      }
+    },
+    {
+      "test": "chibi-map-return-keeps-research",
+      "pressed": [
+        "火攻",
+        "赤壁一带",
+        "04火攻条件↗",
+        "读地点",
+        "赤壁一带↗"
+      ]
+    },
+    {
+      "test": "references-open-map-inert",
+      "dom": {
+        "dialog": "赤壁之战 / 随手查阅让故事有据可寻。人物档案史料与边界《三国志》卷五十四 · 周瑜传含裴松之注；风向的东南风表述出自所引《江表传》，须与本传分开。读图与史料的边界本场景只写208年冬，不在十月、十二月的不同编年之间伪造一致的精确日期。以今湖北赤壁一带为故事定位，河岸、舰队与路线均为示意；该定位不等于古战场已被精确测定。火攻、诈降和船舰首尾相接有史料依据；铁链捆船的具体构造不能由这句话直接推出。强风见本传，东南风见裴注所引《江表传》；不制作诸葛亮施法改变天气的画面。人物肖像为当代艺术想象，不是本人容貌的考古复原。",
+        "focus": "关闭查阅"
+      }
+    },
+    {
+      "test": "references-escape-focus",
+      "focus": {
+        "dialog": false,
+        "focus": "史料与边界"
+      }
+    },
+    {
+      "test": "jiupin-three-dimensions",
+      "dom": {
+        "doc": "回望 · 西晋人的批评制度关系示意品评人物品评与选用家世影响这层告诉我们家世，逐渐压进了评价卫瓘说，制度后来逐渐“计资定品”；刘毅也指出，高等第偏向有势力的家族。人物的家世和地位，可能遮住了他本人的才能。↳家世并不是才能本身这些是西晋人的批评和回顾。“上品无寒门”不能读成所有年代、所有品评都绝无例外。品评的依据评价的人选用的结果制度关系示意 · 完整依据可在史料中查阅",
+        "selected": [
+          "魏晋后期转变",
+          "03家世影响名字背后的门第",
+          "异议，能否被听见↗"
+        ]
+      }
+    },
+    {
+      "test": "jiupin-reload-keeps-choice",
+      "selected": [
+        "魏晋后期转变",
+        "03家世影响名字背后的门第",
+        "异议，能否被听见↗"
+      ]
+    },
+    {
+      "test": "jiupin-later-chapter-year",
+      "dom": "西晋初年 · 后来的变化\n·\n分开两个时代\n后来，家世进入了尺子\n\n到了西晋，卫瓘批评品评逐渐按资望定等，刘毅也指出高等第偏向有势力的家族。不能把后来的门第化，直接当作220年创制时的全部面貌。\n\n换个角度看\n\n地图切到西晋作时代背景；这里没有给这些奏疏编造280年的确切日期。\n\n拆开看看\n到地图上观察"
+    },
+    {
+      "test": "jiupin-mobile-stage",
+      "dom": {
+        "focus": "后来，家世进入了尺子",
+        "footer": {
+          "bottom": 844,
+          "height": 146,
+          "left": 0,
+          "right": 390,
+          "top": 698,
+          "width": 390,
+          "x": 0,
+          "y": 698
+        },
+        "h": 844,
+        "overflow": false,
+        "stage": {
+          "height": 582,
+          "scroll": 582
+        },
+        "w": 390
+      }
+    },
+    {
+      "test": "jiupin-mobile-research-fit",
+      "dom": {
+        "h": 844,
+        "lensBoxes": [
+          {
+            "bottom": 506.375,
+            "height": 72,
+            "left": 33,
+            "right": 132.6640625,
+            "top": 434.375,
+            "width": 99.6640625,
+            "x": 33,
+            "y": 434.375
+          },
+          {
+            "bottom": 506.375,
+            "height": 72,
+            "left": 137.6640625,
+            "right": 237.328125,
+            "top": 434.375,
+            "width": 99.6640625,
+            "x": 137.6640625,
+            "y": 434.375
+          },
+          {
+            "bottom": 506.375,
+            "height": 72,
+            "left": 242.328125,
+            "right": 341.9921875,
+            "top": 434.375,
+            "width": 99.6640625,
+            "x": 242.328125,
+            "y": 434.375
+          }
+        ],
+        "overflow": false,
+        "w": 390
+      }
+    },
+    {
+      "test": "yinping-mobile-research",
+      "dom": {
+        "overflow": false,
+        "visibleButtons": [
+          {
+            "label": "观察剑阁",
+            "rect": {
+              "bottom": 498.9296875,
+              "height": 44,
+              "left": 243.1171875,
+              "right": 317.1171875,
+              "top": 454.9296875,
+              "width": 74,
+              "x": 243.1171875,
+              "y": 454.9296875
+            }
+          },
+          {
+            "label": "观察阴平",
+            "rect": {
+              "bottom": 404.375,
+              "height": 44,
+              "left": 131.6953125,
+              "right": 205.6953125,
+              "top": 360.375,
+              "width": 74,
+              "x": 131.6953125,
+              "y": 360.375
+            }
+          },
+          {
+            "label": "观察古江油",
+            "rect": {
+              "bottom": 498.9296875,
+              "height": 44,
+              "left": 140.453125,
+              "right": 226.453125,
+              "top": 454.9296875,
+              "width": 86,
+              "x": 140.453125,
+              "y": 454.9296875
+            }
+          },
+          {
+            "label": "观察古绵竹",
+            "rect": {
+              "bottom": 624,
+              "height": 44,
+              "left": 96.6328125,
+              "right": 182.6328125,
+              "top": 580,
+              "width": 86,
+              "x": 96.6328125,
+              "y": 580
+            }
+          },
+          {
+            "label": "观察成都",
+            "rect": {
+              "bottom": 695.2109375,
+              "height": 44,
+              "left": 55.3203125,
+              "right": 129.3203125,
+              "top": 651.2109375,
+              "width": 74,
+              "x": 55.3203125,
+              "y": 651.2109375
+            }
+          }
+        ],
+        "w": 390
+      }
+    },
+    {
+      "test": "yinping-route-and-stage",
+      "dom": {
+        "choices": [
+          "绕行",
+          "古绵竹",
+          "读地点",
+          "古绵竹↗"
+        ],
+        "record": "地形与位置古绵竹在今德阳黄许地区，处在通向成都的北部通道上，不是现代绵竹市中心。行动与代价诸葛瞻在绵竹迎战，邓艾击败守军。绕过剑阁并不等于兵不血刃地直达成都。读图的边界古城地望据黄许考古遗址说明。示意路径不是每一天的行军轨迹。在时空地图定位 ↗",
+        "stage": "03腹地交战"
+      }
+    },
+    {
+      "test": "yinping-reload-route-stage",
+      "dom": {
+        "choices": [
+          "绕行",
+          "古绵竹",
+          "读地点",
+          "古绵竹↗"
+        ],
+        "stage": "03腹地交战"
+      }
+    },
+    {
+      "test": "yinping-ancient-jiangyou",
+      "text": "地形与位置\n\n在今平武江油关一带，位于山地通道的出口。它不是今天江油市区的位置。\n\n行动与代价\n\n邓艾抵达江油，守将马邈投降。越过险路后，军队才进入下一阶段，仍需要继续前进与作战。\n\n读图的边界\n\n以古今同名的区别理解地点。节点是地区定位，不主张精确复原古城墙。\n\n在时空地图定位\n↗"
+    },
+    {
+      "test": "studio-narration-playing",
+      "state": "playing"
+    },
+    {
+      "test": "library-pauses-narration",
+      "state": "paused"
+    },
+    {
+      "test": "library-return-focus",
+      "dom": {
+        "audio": "playing",
+        "focus": "打开精选故事"
+      }
+    },
+    {
+      "test": "narration-ended-keeps-chapter",
+      "dom": {
+        "audio": "ended",
+        "chapter": "第1幕：正面那道门，还守得住"
+      }
+    },
+    {
+      "test": "ended-reference-close-no-replay",
+      "audio": "ended"
+    },
+    {
+      "test": "narration-replay-and-pause",
+      "audio": "paused"
+    },
+    {
+      "test": "research-map-reload-retains-origin",
+      "dom": {
+        "kicker": "研究台 · 地理观察阴平灭蜀回到观察地点",
+        "note": "从研究台来到地图让地形替你回答。拖动或缩放地图，观察河流、关口与周围地势。把研究台中的关系，放回真实的空间。读图线索把剑阁、阴平、古江油、古绵竹与成都连起来，比较关口、山路和腹地之间的关系。带着问题，回到研究台 路线和位置为教学示意，疆域为大致控制范围。",
+        "view": "map"
+      }
+    },
+    {
+      "test": "yinping-chapter-1",
+      "dom": {
+        "chapter": "第1幕：正面那道门，还守得住",
+        "text": "姜维退守剑阁，钟会从正面进攻，未能攻下。山地把大路收束在关口，但守住这道门，还不等于守住所有通向腹地的方向。",
+        "title": "正面那道门，还守得住",
+        "view": "stage"
+      }
+    },
+    {
+      "test": "yinping-chapter-2",
+      "dom": {
+        "chapter": "第2幕：把难题送到防线背后",
+        "text": "邓艾提出，从阴平的小路绕向涪。姜维若回救，剑阁会少一道屏障；若不回救，腹地就要独自面对这支突然出现的军队。",
+        "title": "把难题送到防线背后",
+        "view": "stage"
+      }
+    },
+    {
+      "test": "yinping-chapter-3",
+      "dom": {
+        "chapter": "第3幕：险路，也困住进攻者",
+        "text": "《邓艾传》记载，他们凿山修路、搭建桥阁，粮食转运几乎耗尽。山谷越深，绕行越难被预料，军队也越难得到补给。",
+        "title": "险路，也困住进攻者",
+        "view": "stage"
+      }
+    },
+    {
+      "test": "yinping-chapter-4",
+      "dom": {
+        "chapter": "第4幕：关口以南，防线被打开",
+        "text": "邓艾抵达江油，守将投降；随后在绵竹击败诸葛瞻。威胁已经进入成都一侧，剑阁守军再坚守，也无法单独挡住这条进攻线。",
+        "title": "关口以南，防线被打开",
+        "view": "stage"
+      }
+    },
+    {
+      "test": "yinping-chapter-5",
+      "dom": {
+        "chapter": "第5幕：蜀地并入魏，吴仍在江南",
+        "text": "刘禅请降，蜀汉在263年灭亡。山险曾帮助蜀汉守住边境，最终的结果还取决于路线、补给和防守选择；此时的魏尚未变成晋。",
+        "title": "蜀地并入魏，吴仍在江南",
+        "view": "stage"
+      }
+    },
+    {
+      "test": "yinping-research-viewport",
+      "dom": {
+        "body": {
+          "bottom": 422,
+          "height": 306,
+          "left": 0,
+          "right": 320,
+          "top": 116,
+          "width": 320,
+          "x": 0,
+          "y": 116
+        },
+        "footer": {
+          "bottom": 568,
+          "height": 146,
+          "left": 0,
+          "right": 320,
+          "top": 422,
+          "width": 320,
+          "x": 0,
+          "y": 422
+        },
+        "h": 568,
+        "header": {
+          "bottom": 116,
+          "height": 116,
+          "left": 0,
+          "right": 320,
+          "top": 0,
+          "width": 320,
+          "x": 0,
+          "y": 0
+        },
+        "overflow": false,
+        "tabs": [
+          {
+            "box": {
+              "bottom": 102,
+              "height": 40,
+              "left": 25,
+              "right": 115,
+              "top": 62,
+              "width": 90,
+              "x": 25,
+              "y": 62
+            },
+            "text": "故事现场"
+          },
+          {
+            "box": {
+              "bottom": 102,
+              "height": 40,
+              "left": 115,
+              "right": 205,
+              "top": 62,
+              "width": 90,
+              "x": 115,
+              "y": 62
+            },
+            "text": "拆开看看"
+          },
+          {
+            "box": {
+              "bottom": 102,
+              "height": 40,
+              "left": 205,
+              "right": 295,
+              "top": 62,
+              "width": 90,
+              "x": 205,
+              "y": 62
+            },
+            "text": "地图手札"
+          }
+        ],
+        "tools": {
+          "bottom": 53,
+          "height": 44,
+          "left": 152,
+          "right": 307,
+          "top": 9,
+          "width": 155,
+          "x": 152,
+          "y": 9
+        },
+        "w": 320
+      }
+    },
+    {
+      "test": "yinping-research-viewport",
+      "dom": {
+        "body": {
+          "bottom": 1020,
+          "height": 894,
+          "left": 0,
+          "right": 820,
+          "top": 126,
+          "width": 820,
+          "x": 0,
+          "y": 126
+        },
+        "footer": {
+          "bottom": 1180,
+          "height": 160,
+          "left": 0,
+          "right": 820,
+          "top": 1020,
+          "width": 820,
+          "x": 0,
+          "y": 1020
+        },
+        "h": 1180,
+        "header": {
+          "bottom": 126,
+          "height": 126,
+          "left": 0,
+          "right": 820,
+          "top": 0,
+          "width": 820,
+          "x": 0,
+          "y": 0
+        },
+        "overflow": false,
+        "tabs": [
+          {
+            "box": {
+              "bottom": 107,
+              "height": 40,
+              "left": 293,
+              "right": 369,
+              "top": 67,
+              "width": 76,
+              "x": 293,
+              "y": 67
+            },
+            "text": "故事现场"
+          },
+          {
+            "box": {
+              "bottom": 107,
+              "height": 40,
+              "left": 372,
+              "right": 448,
+              "top": 67,
+              "width": 76,
+              "x": 372,
+              "y": 67
+            },
+            "text": "拆开看看"
+          },
+          {
+            "box": {
+              "bottom": 107,
+              "height": 40,
+              "left": 451,
+              "right": 527,
+              "top": 67,
+              "width": 76,
+              "x": 451,
+              "y": 67
+            },
+            "text": "地图手札"
+          }
+        ],
+        "tools": {
+          "bottom": 57,
+          "height": 44,
+          "left": 629,
+          "right": 800,
+          "top": 13,
+          "width": 171,
+          "x": 629,
+          "y": 13
+        },
+        "w": 820
+      }
+    },
+    {
+      "test": "yinping-research-viewport",
+      "dom": {
+        "body": {
+          "bottom": 320,
+          "height": 256,
+          "left": 0,
+          "right": 740,
+          "top": 64,
+          "width": 740,
+          "x": 0,
+          "y": 64
+        },
+        "footer": {
+          "bottom": 420,
+          "height": 100,
+          "left": 0,
+          "right": 740,
+          "top": 320,
+          "width": 740,
+          "x": 0,
+          "y": 320
+        },
+        "h": 420,
+        "header": {
+          "bottom": 64,
+          "height": 64,
+          "left": 0,
+          "right": 740,
+          "top": 0,
+          "width": 740,
+          "x": 0,
+          "y": 0
+        },
+        "overflow": false,
+        "tabs": [
+          {
+            "box": {
+              "bottom": 51.5,
+              "height": 40,
+              "left": 209.5,
+              "right": 281.5,
+              "top": 11.5,
+              "width": 72,
+              "x": 209.5,
+              "y": 11.5
+            },
+            "text": "故事现场"
+          },
+          {
+            "box": {
+              "bottom": 51.5,
+              "height": 40,
+              "left": 284.5,
+              "right": 356.5,
+              "top": 11.5,
+              "width": 72,
+              "x": 284.5,
+              "y": 11.5
+            },
+            "text": "拆开看看"
+          },
+          {
+            "box": {
+              "bottom": 51.5,
+              "height": 40,
+              "left": 359.5,
+              "right": 431.5,
+              "top": 11.5,
+              "width": 72,
+              "x": 359.5,
+              "y": 11.5
+            },
+            "text": "地图手札"
+          }
+        ],
+        "tools": {
+          "bottom": 53.5,
+          "height": 44,
+          "left": 553,
+          "right": 724,
+          "top": 9.5,
+          "width": 171,
+          "x": 553,
+          "y": 9.5
+        },
+        "w": 740
+      }
+    },
+    {
+      "test": "chibi-chapter-1",
+      "dom": {
+        "chapter": "第1幕：长江的防线，已经变了",
+        "text": "曹操进入荆州，也接收了刘表的水军。长江仍在眼前，船却不只在孙权手中；一道天险，已经不能独自挡住来敌。",
+        "title": "长江的防线，已经变了",
+        "view": "stage"
+      }
+    },
+    {
+      "test": "chibi-chapter-2",
+      "dom": {
+        "chapter": "第2幕：人数之外，还有什么",
+        "text": "孙权决定抵抗，与刘备合力迎战。周瑜判断：北方士兵远来，水战与水土都成难题；史书也记下曹军已经有疾病。",
+        "title": "人数之外，还有什么",
+        "view": "stage"
+      }
+    },
+    {
+      "test": "chibi-chapter-3",
+      "dom": {
+        "chapter": "第3幕：火船为什么能靠近",
+        "text": "黄盖发现曹军船舰首尾相接，先送信假称投降，再让装着薪草、油料的船靠近。火借强风蔓延，连岸上的营地也被烧到。",
+        "title": "火船为什么能靠近",
+        "view": "stage"
+      }
+    },
+    {
+      "test": "chibi-chapter-4",
+      "dom": {
+        "chapter": "第4幕：一场胜利，没有立刻分成三国",
+        "text": "曹操败退，仍留曹仁守江陵；孙刘联军继续争夺南郡。赤壁改变了统一的进程，却没有在一夜之间划出魏、蜀、吴的边界。",
+        "title": "一场胜利，没有立刻分成三国",
+        "view": "stage"
+      }
+    },
+    {
+      "test": "chibi-chapter-5",
+      "dom": {
+        "chapter": "第5幕：风是真的，借风是故事",
+        "text": "《周瑜传》记下火攻时风势猛烈，裴注引《江表传》进一步说是东南风。诸葛亮设坛“借东风”，属于后来小说的讲法。",
+        "title": "风是真的，借风是故事",
+        "view": "stage"
+      }
+    },
+    {
+      "test": "jiupin-chapter-1",
+      "dom": {
+        "chapter": "第1幕：战乱之后，怎样认识一个人",
+        "text": "多年战乱让士人离开乡里，朝廷更难了解他们。后来卫瓘回顾说，九品之制起初是为应对这种难题，提供一套选人的依据。",
+        "title": "战乱之后，怎样认识一个人",
+        "view": "stage"
+      }
+    },
+    {
+      "test": "jiupin-chapter-2",
+      "dom": {
+        "chapter": "第2幕：让评价进入选官",
+        "text": "曹丕即魏王位后，陈群提出九品官人法。中正负责品评人物、分列等第，朝廷再据此选官；九品首先是人的品评等级。",
+        "title": "让评价进入选官",
+        "view": "stage"
+      }
+    },
+    {
+      "test": "jiupin-chapter-3",
+      "dom": {
+        "chapter": "第3幕：评价者的尺子",
+        "text": "一张等第表，需要有人判断谁值得推荐。评价者知道多少、偏爱谁，都会影响结果；办法写得整齐，并不意味着每个人都被公平看见。",
+        "title": "评价者的尺子",
+        "view": "stage"
+      }
+    },
+    {
+      "test": "jiupin-chapter-4",
+      "dom": {
+        "chapter": "第4幕：后来，家世进入了尺子",
+        "text": "到了西晋，卫瓘批评品评逐渐按资望定等，刘毅也指出高等第偏向有势力的家族。不能把后来的门第化，直接当作220年创制时的全部面貌。",
+        "title": "后来，家世进入了尺子",
+        "view": "stage"
+      }
+    },
+    {
+      "test": "jiupin-chapter-5",
+      "dom": {
+        "chapter": "第5幕：谁来评价评价者",
+        "text": "刘毅追问：品评缺少约束，受委屈的人又难以申诉，怎样避免偏私？选官不仅要有标准，还要让评价的理由能够被检查。",
+        "title": "谁来评价评价者",
+        "view": "stage"
+      }
+    },
+    {
+      "test": "view-tabs-arrow-key",
+      "view": "research"
+    },
+    {
+      "test": "jiupin-map-year-and-focus",
+      "dom": {
+        "focus": "地图手札",
+        "heading": "西晋初年 · 回望制度九品中正回到观察地点",
+        "map": "map maplibregl-map z-mid",
+        "view": "map"
+      }
+    },
+    {
+      "test": "jiupin-mobile-map",
+      "dom": {
+        "footer": {
+          "bottom": 844,
+          "height": 146,
+          "left": 0,
+          "right": 390,
+          "top": 698,
+          "width": 390,
+          "x": 0,
+          "y": 698
+        },
+        "header": {
+          "bottom": 116,
+          "height": 116,
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "width": 390,
+          "x": 0,
+          "y": 0
+        },
+        "note": {
+          "bottom": 680,
+          "height": 303.8359375,
+          "left": 15,
+          "right": 375,
+          "top": 376.1640625,
+          "width": 360,
+          "x": 15,
+          "y": 376.1640625
+        },
+        "overflow": false
+      }
+    },
+    {
+      "test": "reference-mobile-focus-trap",
+      "focus": "史料与边界"
+    },
+    {
+      "test": "rapid-map-exit",
+      "url": "http://127.0.0.1:4173/",
+      "dom": {
+        "cartography": false,
+        "mode": "app mode-explore",
+        "studio": false
+      }
+    },
+    {
+      "test": "final-mobile-chibi-stage",
+      "dom": {
+        "h": 844,
+        "mainScript": "/assets/index-C0MbYA15.js",
+        "overflow": false,
+        "portrait": true,
+        "step": "第1幕：长江的防线，已经变了",
+        "w": 390
+      }
+    },
+    {
+      "test": "before-mobile-tab-refinement",
+      "dom": {
+        "opacity": "1",
+        "overflow": false,
+        "tabHeights": [
+          40,
+          40,
+          40
+        ],
+        "w": 390
+      }
+    },
+    {
+      "test": "final-desktop-stage-no-extra-scroll",
+      "dom": {
+        "h": 900,
+        "mainScript": "/assets/index-CfmeOpO7.js",
+        "overflow": false,
+        "stageClient": 656,
+        "stageScroll": 656,
+        "w": 1440
+      }
+    },
+    {
+      "test": "final-stage-background-dom-attributes",
+      "dom": {
+        "canvasVisibility": "hidden",
+        "mapHidden": "true",
+        "mapInert": true
+      }
+    },
+    {
+      "test": "final-map-background-dom-attributes",
+      "dom": {
+        "canvasVisibility": "visible",
+        "mapHidden": null,
+        "mapInert": false
+      }
+    },
+    {
+      "test": "final-dialog-background-dom-attributes",
+      "dom": {
+        "focus": "关闭查阅",
+        "mapInert": true,
+        "shellInert": true
+      }
+    },
+    {
+      "test": "final-dialog-close-restores-map",
+      "dom": {
+        "focus": "史料与边界",
+        "mapInert": false,
+        "shellInert": false
+      }
+    },
+    {
+      "test": "final-research-reading-selection-still-kept",
+      "dom": {
+        "mapInert": true,
+        "researchView": [
+          "火攻",
+          "赤壁一带",
+          "04火攻条件↗",
+          "读地点",
+          "赤壁一带↗"
+        ],
+        "view": "stage"
+      }
+    },
+    {
+      "test": "final-mobile-tab-refinement",
+      "dom": {
+        "body": {
+          "bottom": 698,
+          "height": 582,
+          "left": 0,
+          "right": 390,
+          "top": 116,
+          "width": 390,
+          "x": 0,
+          "y": 116
+        },
+        "h": 844,
+        "header": {
+          "bottom": 116,
+          "height": 116,
+          "left": 0,
+          "right": 390,
+          "top": 0,
+          "width": 390,
+          "x": 0,
+          "y": 0
+        },
+        "mainScript": "/assets/index-DLu3tH1B.js",
+        "overflow": false,
+        "tabBoxes": [
+          {
+            "bottom": 104,
+            "height": 44,
+            "left": 60,
+            "right": 150,
+            "top": 60,
+            "width": 90,
+            "x": 60,
+            "y": 60
+          },
+          {
+            "bottom": 104,
+            "height": 44,
+            "left": 150,
+            "right": 240,
+            "top": 60,
+            "width": 90,
+            "x": 150,
+            "y": 60
+          },
+          {
+            "bottom": 104,
+            "height": 44,
+            "left": 240,
+            "right": 330,
+            "top": 60,
+            "width": 90,
+            "x": 240,
+            "y": 60
+          }
+        ],
+        "w": 390
+      }
+    }
+  ],
+  "errors": []
+}

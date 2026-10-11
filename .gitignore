@@ -1,0 +1,31 @@
+# Python environments and caches
+data/.venv/
+data/.venv-geo/
+__pycache__/
+*.pyc
+
+# Source data (see data/SOURCES.md) and regenerable intermediates
+data/raw/
+data/derived/
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Screenshot tool output
+tools/shot/out/
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+~$*
+*.log

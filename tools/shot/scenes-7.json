@@ -1,0 +1,4 @@
+[
+  { "name": "globe-norelief", "year": 222.5, "center": [106, 30], "zoom": 2.4, "eval": "window.__map.setLayoutProperty('relief','visibility','none')", "wait": 1500 },
+  { "name": "globe-nohill", "year": 222.5, "center": [106, 30], "zoom": 2.4, "eval": "window.__map.setLayoutProperty('hillshade','visibility','none')", "wait": 1500 }
+]

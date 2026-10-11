@@ -1,0 +1,6 @@
+[
+  { "name": "jin-25", "year": 264.98, "center": [110.5, 33.5], "zoom": 4.3, "wait": 2800 },
+  { "name": "jin-50", "year": 265.29, "center": [110.5, 33.5], "zoom": 4.3, "wait": 2800 },
+  { "name": "jin-75", "year": 265.61, "center": [110.5, 33.5], "zoom": 4.3, "wait": 2800 },
+  { "name": "jing-219-50", "year": 219.22, "center": [112.2, 29.8], "zoom": 5.4, "wait": 2800 }
+]

@@ -1,0 +1,4 @@
+[
+  { "name": "ic-live", "dpr": 2, "year": 208.97, "center": [113.9, 29.9], "zoom": 6.4, "clip": { "x": 560, "y": 350, "width": 320, "height": 200 }, "wait": 1800 },
+  { "name": "ic-sel-past", "dpr": 2, "year": 210.5, "center": [113.9, 29.9], "zoom": 6.4, "panel": { "kind": "event", "id": "chibi_zhizhan" }, "wait": 3200 }
+]

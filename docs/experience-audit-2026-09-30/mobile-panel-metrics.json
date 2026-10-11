@@ -1,0 +1,53 @@
+{
+  "boxes": [
+    {
+      "class": "topbar",
+      "clientHeight": 87,
+      "clientWidth": 370,
+      "height": 86.5,
+      "scrollHeight": 87,
+      "scrollWidth": 370,
+      "width": 370,
+      "x": 10,
+      "y": 10
+    },
+    {
+      "class": "panel",
+      "clientHeight": 386,
+      "clientWidth": 372,
+      "height": 388.234375,
+      "scrollHeight": 386,
+      "scrollWidth": 372,
+      "width": 374,
+      "x": 8,
+      "y": 271.765625
+    },
+    {
+      "class": "panel-scroll",
+      "clientHeight": 376,
+      "clientWidth": 362,
+      "height": 386.234375,
+      "scrollHeight": 1232,
+      "scrollWidth": 366,
+      "width": 372,
+      "x": 9,
+      "y": 272.765625
+    },
+    {
+      "class": "timeline",
+      "clientHeight": 175,
+      "clientWidth": 390,
+      "height": 176,
+      "scrollHeight": 175,
+      "scrollWidth": 390,
+      "width": 390,
+      "x": 0,
+      "y": 668
+    }
+  ],
+  "heading": "赤壁之战",
+  "viewport": [
+    390,
+    844
+  ]
+}

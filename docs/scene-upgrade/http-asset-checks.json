@@ -1,0 +1,125 @@
+[
+  {
+    "file": "audio/scene-chibi/chibi-1.mp3",
+    "status": 200,
+    "content_type": "audio/mpeg",
+    "bytes": 91296
+  },
+  {
+    "file": "audio/scene-chibi/chibi-2.mp3",
+    "status": 200,
+    "content_type": "audio/mpeg",
+    "bytes": 90864
+  },
+  {
+    "file": "audio/scene-chibi/chibi-3.mp3",
+    "status": 200,
+    "content_type": "audio/mpeg",
+    "bytes": 93168
+  },
+  {
+    "file": "audio/scene-chibi/chibi-4.mp3",
+    "status": 200,
+    "content_type": "audio/mpeg",
+    "bytes": 105552
+  },
+  {
+    "file": "audio/scene-chibi/chibi-5.mp3",
+    "status": 200,
+    "content_type": "audio/mpeg",
+    "bytes": 88704
+  },
+  {
+    "file": "audio/scene-jiupin/jiupin-1.mp3",
+    "status": 200,
+    "content_type": "audio/mpeg",
+    "bytes": 96336
+  },
+  {
+    "file": "audio/scene-jiupin/jiupin-2.mp3",
+    "status": 200,
+    "content_type": "audio/mpeg",
+    "bytes": 88704
+  },
+  {
+    "file": "audio/scene-jiupin/jiupin-3.mp3",
+    "status": 200,
+    "content_type": "audio/mpeg",
+    "bytes": 97056
+  },
+  {
+    "file": "audio/scene-jiupin/jiupin-4.mp3",
+    "status": 200,
+    "content_type": "audio/mpeg",
+    "bytes": 105840
+  },
+  {
+    "file": "audio/scene-jiupin/jiupin-5.mp3",
+    "status": 200,
+    "content_type": "audio/mpeg",
+    "bytes": 87120
+  },
+  {
+    "file": "audio/scene-yinping/yinping-1.mp3",
+    "status": 200,
+    "content_type": "audio/mpeg",
+    "bytes": 94608
+  },
+  {
+    "file": "audio/scene-yinping/yinping-2.mp3",
+    "status": 200,
+    "content_type": "audio/mpeg",
+    "bytes": 90864
+  },
+  {
+    "file": "audio/scene-yinping/yinping-3.mp3",
+    "status": 200,
+    "content_type": "audio/mpeg",
+    "bytes": 87696
+  },
+  {
+    "file": "audio/scene-yinping/yinping-4.mp3",
+    "status": 200,
+    "content_type": "audio/mpeg",
+    "bytes": 95616
+  },
+  {
+    "file": "audio/scene-yinping/yinping-5.mp3",
+    "status": 200,
+    "content_type": "audio/mpeg",
+    "bytes": 106416
+  },
+  {
+    "file": "images/portraits/zhouyu.webp",
+    "status": 200,
+    "content_type": "image/webp",
+    "bytes": 1874030
+  },
+  {
+    "file": "images/portraits/chenqun.webp",
+    "status": 200,
+    "content_type": "image/webp",
+    "bytes": 1797494
+  },
+  {
+    "file": "images/portraits/dengai.webp",
+    "status": 200,
+    "content_type": "image/webp",
+    "bytes": 1835414
+  },
+  {
+    "file": "audio/scene-chibi/chibi-1.mp3",
+    "range_status": 206,
+    "content_range": "bytes 0-1023/91296"
+  },
+  {
+    "file": "audio/scene-jiupin/jiupin-1.mp3",
+    "range_status": 206,
+    "content_range": "bytes 0-1023/96336"
+  },
+  {
+    "file": "audio/scene-yinping/yinping-1.mp3",
+    "range_status": 206,
+    "content_range": "bytes 0-1023/94608"
+  }
+]

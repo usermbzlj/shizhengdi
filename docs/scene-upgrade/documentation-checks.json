@@ -1,0 +1,115 @@
+{
+  "browser_entries": 53,
+  "chapters": 15,
+  "error_logs": 0,
+  "final_build": "/assets/index-DLu3tH1B.js",
+  "local_document_links": 27,
+  "missing_links": [],
+  "screenshots": [
+    {
+      "name": "01-scene-library.jpg",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "02-chibi-desktop.jpg",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "03-chibi-mobile.jpg",
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "04-chibi-mobile-reading.jpg",
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "05-yinping-dark.jpg",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "06-jiupin-mobile-reading.jpg",
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "07-jiupin-desktop.jpg",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "08-studio-chibi-stage.jpg",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "09-studio-chibi-research.jpg",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "10-studio-jiupin-document.jpg",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "11-studio-yinping-route.jpg",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "12-studio-mobile-stage.jpg",
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "13-studio-mobile-institution.jpg",
+      "size": [
+        390,
+        844
+      ]
+    },
+    {
+      "name": "14-studio-map-folio.jpg",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "15-studio-yinping-dark.jpg",
+      "size": [
+        1440,
+        900
+      ]
+    }
+  ]
+}

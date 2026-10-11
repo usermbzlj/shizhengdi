@@ -1,0 +1,109 @@
+{
+  "scene_count": 3,
+  "step_count": 15,
+  "audio": [
+    {
+      "file": "scene-chibi/chibi-1.mp3",
+      "bytes": 91296,
+      "text_hash_matches": true
+    },
+    {
+      "file": "scene-chibi/chibi-2.mp3",
+      "bytes": 90864,
+      "text_hash_matches": true
+    },
+    {
+      "file": "scene-chibi/chibi-3.mp3",
+      "bytes": 93168,
+      "text_hash_matches": true
+    },
+    {
+      "file": "scene-chibi/chibi-4.mp3",
+      "bytes": 105552,
+      "text_hash_matches": true
+    },
+    {
+      "file": "scene-chibi/chibi-5.mp3",
+      "bytes": 88704,
+      "text_hash_matches": true
+    },
+    {
+      "file": "scene-jiupin/jiupin-1.mp3",
+      "bytes": 96336,
+      "text_hash_matches": true
+    },
+    {
+      "file": "scene-jiupin/jiupin-2.mp3",
+      "bytes": 88704,
+      "text_hash_matches": true
+    },
+    {
+      "file": "scene-jiupin/jiupin-3.mp3",
+      "bytes": 97056,
+      "text_hash_matches": true
+    },
+    {
+      "file": "scene-jiupin/jiupin-4.mp3",
+      "bytes": 105840,
+      "text_hash_matches": true
+    },
+    {
+      "file": "scene-jiupin/jiupin-5.mp3",
+      "bytes": 87120,
+      "text_hash_matches": true
+    },
+    {
+      "file": "scene-yinping/yinping-1.mp3",
+      "bytes": 94608,
+      "text_hash_matches": true
+    },
+    {
+      "file": "scene-yinping/yinping-2.mp3",
+      "bytes": 90864,
+      "text_hash_matches": true
+    },
+    {
+      "file": "scene-yinping/yinping-3.mp3",
+      "bytes": 87696,
+      "text_hash_matches": true
+    },
+    {
+      "file": "scene-yinping/yinping-4.mp3",
+      "bytes": 95616,
+      "text_hash_matches": true
+    },
+    {
+      "file": "scene-yinping/yinping-5.mp3",
+      "bytes": 106416,
+      "text_hash_matches": true
+    }
+  ],
+  "portraits": [
+    {
+      "name": "zhouyu",
+      "pixels_identical": true,
+      "source_bytes": 2728847,
+      "webp_bytes": 1874030
+    },
+    {
+      "name": "chenqun",
+      "pixels_identical": true,
+      "source_bytes": 2599134,
+      "webp_bytes": 1797494
+    },
+    {
+      "name": "dengai",
+      "pixels_identical": true,
+      "source_bytes": 2714040,
+      "webp_bytes": 1835414
+    }
+  ],
+  "events": {
+    "total": 108,
+    "corrections": 3,
+    "other_records_unchanged": 105,
+    "reconstructed_output_matches": true,
+    "unknown_id_rejected": true,
+    "override_runs_after_review_before_dump": true
+  }
+}

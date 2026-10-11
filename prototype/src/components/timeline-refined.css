@@ -1,0 +1,51 @@
+.app .timeline { height: 204px; padding-left: 44px; padding-right: 20px; }
+.app .timeline .tl-track { height: 116px; }
+.app .timeline .tl-rail, .app .timeline .tl-tick { top: 13px; pointer-events: none; }
+.app .timeline .tl-tick span { top: 7px; }
+.app .timeline .tl-head { top: 8px; }
+.app .timeline .tl-head-knob { top: 0; width: 10px; height: 10px; left: -5px; }
+.app .timeline .tl-head-line { bottom: 8px; opacity: .55; box-shadow: none; }
+.app .timeline .tl-readout { top: -76px; }
+.tl-scrub { position: absolute; inset: 0 0 auto; height: 31px; z-index: 2; border-radius: 4px; }
+.tl-scrub:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tl-cluster { position: absolute; transform: translateX(-50%); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; gap: 2px; padding: 0; color: var(--text-2); border: 1px solid transparent; border-radius: 8px; background: transparent; cursor: pointer; touch-action: manipulation; z-index: 3; }
+.tl-cluster-history { top: 31px; }
+.tl-cluster-world { top: 75px; color: var(--muted); }
+.tl-cluster-icon { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border: 1px solid var(--line); border-radius: 50%; background: var(--bg); }
+.tl-cluster-count { font-size: 10px; font-variant-numeric: tabular-nums; min-width: 9px; }
+.tl-cluster:hover, .tl-cluster:focus-visible, .tl-cluster.sel, .tl-cluster[aria-expanded="true"] { background: color-mix(in srgb, var(--accent) 10%, var(--bg)); border-color: color-mix(in srgb, var(--accent) 40%, transparent); color: var(--accent); outline: none; }
+.tl-cluster:disabled { opacity: .5; cursor: default; }
+.tl-lane-label { position: absolute; left: -31px; width: 26px; font-size: 10px; color: var(--muted); text-align: center; pointer-events: none; }
+.tl-lane-history { top: 46px; }
+.tl-lane-world { top: 90px; }
+.tl-event-list { position: fixed; bottom: 212px; width: min(360px, calc(100vw - 32px)); max-height: min(420px, 52vh); display: flex; flex-direction: column; background: var(--glass-strong, var(--bg)); backdrop-filter: blur(20px); border: 1px solid var(--line-2); box-shadow: 0 12px 44px #0002; border-radius: 14px; overflow: hidden; color: var(--text); z-index: 80; user-select: text; }
+.tl-list-head { display: flex; align-items: center; justify-content: space-between; padding: 5px 8px 5px 16px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--line); }
+.tl-list-head button { width: 44px; height: 44px; font-size: 23px; color: var(--text-2); }
+.tl-list-items { overflow: auto; overscroll-behavior: contain; }
+.tl-list-items > button { display: flex; align-items: flex-start; gap: 14px; width: 100%; min-height: 52px; padding: 13px 16px; text-align: left; color: var(--text); border-bottom: 1px solid var(--line); }
+.tl-list-items > button:hover, .tl-list-items > button:focus-visible { outline: none; background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.tl-list-year { font-size: 13px; font-variant-numeric: tabular-nums; color: var(--accent); padding-top: 2px; }
+.tl-list-items b { font-size: 14px; font-weight: 500; }
+.tl-list-items small { display: block; margin-top: 4px; font-size: 11px; color: var(--muted); line-height: 1.6; }
+.app.mode-guide .timeline { height: 140px; }
+.app.mode-guide .tl-event-list { bottom: 148px; }
+.app.mode-guide .guide { bottom: 152px; }
+@media (max-width: 759px) {
+  .app .timeline { height: 184px; padding: 0 12px 8px 36px; gap: 4px; }
+  .app .timeline .tl-bands { display: none; }
+  .app .timeline .tl-readout { top: -51px; }
+  .app .timeline .tl-year { font-size: 23px; }
+  .app .timeline .tl-meta { font-size: 10px; max-width: 230px; overflow: hidden; }
+  .app .timeline .tl-meta em { display: none; }
+  .app .timeline .tl-gap { display: none; }
+  .app .timeline .tl-today { width: 44px; flex-shrink: 0; min-height: 44px; font-size: 11px; }
+  .app .timeline .tl-band-label { font-size: 9px; }
+  .app .timeline .tl-tick:not(.major) span { display: none; }
+  .app .timeline .tl-event-list { left: 16px !important; bottom: 192px; }
+  .app.mode-guide .timeline { height: 140px; }
+  .app.mode-guide .tl-event-list { bottom: 148px; }
+  .app.mode-guide .guide { bottom: 152px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app .timeline, .app .timeline * { transition: none !important; }
+}

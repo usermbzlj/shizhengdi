@@ -1,0 +1,6 @@
+[
+  { "name": "globe-edge", "year": 222.5, "center": [106, 34], "zoom": 3.4, "wait": 1500 },
+  { "name": "above-globe", "year": 222.5, "center": [108, 32], "zoom": 3.8, "wait": 1500 },
+  { "name": "m-guide", "mobile": true, "width": 390, "height": 844, "year": 184.2, "center": [112, 33], "zoom": 4.2, "eval": "document.querySelector('.guide-btn')?.click()", "wait": 6000 },
+  { "name": "dark-card-war", "theme": "dark", "year": 208.97, "center": [113.9, 29.9], "zoom": 5.4, "panel": { "kind": "event", "id": "chibi_zhizhan" }, "wait": 2500 }
+]

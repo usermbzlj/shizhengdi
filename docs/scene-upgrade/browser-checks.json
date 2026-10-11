@@ -1,0 +1,1084 @@
+{
+  "exportedAt": "2026-09-29T22:30:30.950Z",
+  "preview": "http://127.0.0.1:4173/",
+  "finalBuild": "index-Cu60b0c9.js",
+  "consoleErrors": [],
+  "checks": [
+    {
+      "check": "chibi-start",
+      "heading": "长江的防线，已经变了",
+      "images": [
+        {
+          "complete": true,
+          "src": "/images/portraits/zhouyu.webp",
+          "width": 1086
+        }
+      ],
+      "labels": [
+        "江陵",
+        "赤壁",
+        "夏口",
+        "长江"
+      ],
+      "progress": "0.7141064668769715 1",
+      "state": "playing"
+    },
+    {
+      "check": "chibi-step",
+      "date": "208年 · 曹军进入荆州",
+      "selected": "第1段：长江的防线，已经变了",
+      "title": "长江的防线，已经变了",
+      "voice": "paused"
+    },
+    {
+      "check": "chibi-step",
+      "date": "208年冬 · 决定迎战",
+      "selected": "第2段：人数之外，还有什么",
+      "title": "人数之外，还有什么",
+      "voice": "paused"
+    },
+    {
+      "check": "chibi-step",
+      "date": "208年冬 · 火攻",
+      "selected": "第3段：火船为什么能靠近",
+      "title": "火船为什么能靠近",
+      "voice": "paused"
+    },
+    {
+      "check": "chibi-step",
+      "date": "赤壁战后 · 三国尚未建立",
+      "selected": "第4段：一场胜利，没有立刻分成三国",
+      "title": "一场胜利，没有立刻分成三国",
+      "voice": "paused"
+    },
+    {
+      "check": "chibi-step",
+      "date": "回望208年冬",
+      "selected": "第5段：风是真的，借风是故事",
+      "title": "风是真的，借风是故事",
+      "voice": "paused"
+    },
+    {
+      "check": "jiupin-step",
+      "date": "220年 · 制度创立",
+      "focus": "H2",
+      "stage": "220 年初建",
+      "title": "战乱之后，怎样认识一个人"
+    },
+    {
+      "check": "jiupin-step",
+      "date": "220年 · 九品官人法",
+      "focus": "BUTTON",
+      "stage": "220 年初建",
+      "title": "让评价进入选官"
+    },
+    {
+      "check": "jiupin-step",
+      "date": "220年 · 新办法的难处",
+      "focus": "BUTTON",
+      "stage": "220 年初建",
+      "title": "评价者的尺子"
+    },
+    {
+      "check": "jiupin-step",
+      "date": "西晋初年 · 后来的变化",
+      "focus": "BUTTON",
+      "stage": "后来怎样变化",
+      "title": "后来，家世进入了尺子"
+    },
+    {
+      "check": "jiupin-step",
+      "date": "西晋初年 · 回望制度",
+      "focus": "BUTTON",
+      "stage": "后来怎样变化",
+      "title": "谁来评价评价者"
+    },
+    {
+      "check": "yinping-step",
+      "date": "263年 · 剑阁对峙",
+      "labels": [
+        "阴平",
+        "剑阁",
+        "成都",
+        "岷山"
+      ],
+      "title": "正面那道门，还守得住",
+      "view": "剑阁正面"
+    },
+    {
+      "check": "yinping-step",
+      "date": "263年 · 阴平绕行",
+      "labels": [
+        "阴平",
+        "剑阁",
+        "成都",
+        "岷山"
+      ],
+      "title": "把难题送到防线背后",
+      "view": "阴平绕行"
+    },
+    {
+      "check": "yinping-step",
+      "date": "263年冬 · 翻山",
+      "labels": [
+        "阴平",
+        "剑阁",
+        "古江油",
+        "成都",
+        "岷山"
+      ],
+      "title": "险路，也困住进攻者",
+      "view": "阴平绕行"
+    },
+    {
+      "check": "yinping-step",
+      "date": "263年 · 江油与绵竹",
+      "labels": [
+        "阴平",
+        "剑阁",
+        "古江油",
+        "古绵竹",
+        "成都",
+        "岷山"
+      ],
+      "title": "关口以南，防线被打开",
+      "view": "阴平绕行"
+    },
+    {
+      "check": "yinping-step",
+      "date": "263年末 · 蜀汉灭亡",
+      "labels": [
+        "阴平",
+        "剑阁",
+        "古江油",
+        "古绵竹",
+        "成都",
+        "岷山"
+      ],
+      "title": "蜀地并入魏，吴仍在江南",
+      "view": "阴平绕行"
+    },
+    {
+      "check": "mobile-timeline-geometry",
+      "clusters": [
+        {
+          "bottom": 795,
+          "height": 44,
+          "label": "184—190 年，展开 5 件历史事件",
+          "left": 38.5,
+          "right": 82.5,
+          "top": 751,
+          "width": 44,
+          "x": 38.5,
+          "y": 751
+        },
+        {
+          "bottom": 795,
+          "height": 44,
+          "label": "192—211 年，展开 14 件历史事件",
+          "left": 87.5,
+          "right": 131.5,
+          "top": 751,
+          "width": 44,
+          "x": 87.5,
+          "y": 751
+        },
+        {
+          "bottom": 795,
+          "height": 44,
+          "label": "215—229 年，展开 12 件历史事件",
+          "left": 136.5,
+          "right": 180.5,
+          "top": 751,
+          "width": 44,
+          "x": 136.5,
+          "y": 751
+        },
+        {
+          "bottom": 795,
+          "height": 44,
+          "label": "234—249 年，展开 3 件历史事件",
+          "left": 185.5,
+          "right": 229.5,
+          "top": 751,
+          "width": 44,
+          "x": 185.5,
+          "y": 751
+        },
+        {
+          "bottom": 795,
+          "height": 44,
+          "label": "257—265 年，展开 3 件历史事件",
+          "left": 234.5,
+          "right": 278.5,
+          "top": 751,
+          "width": 44,
+          "x": 234.5,
+          "y": 751
+        },
+        {
+          "bottom": 795,
+          "height": 44,
+          "label": "272—279 年，展开 2 件历史事件",
+          "left": 283.5,
+          "right": 327.5,
+          "top": 751,
+          "width": 44,
+          "x": 283.5,
+          "y": 751
+        }
+      ],
+      "width": 390
+    },
+    {
+      "check": "mobile-cluster-selection",
+      "heading": "赤壁之战",
+      "listClosed": true,
+      "overflow": false
+    },
+    {
+      "check": "guide-before-speed",
+      "progress": [
+        {
+          "class": "guide-body",
+          "style": "opacity: 1; transform: none;"
+        },
+        {
+          "class": "",
+          "style": "transform: scaleX(0.46304);"
+        }
+      ],
+      "text": "三国前后 · 184—280\n184 年 · 1 / 48\n\n苍天已死\n\n中平元年二月，太行山以东同时起兵。张角的徒众头裹黄巾，口号是“苍天已死”。河北平原人多粮足，离洛阳又远；黄河下游少有大山，队伍很快蔓延到颍川和南阳。朝廷最怕颍川，因为那里靠近都城。\n\n展开「黄巾起义」详情\n1×"
+    },
+    {
+      "check": "guide-after-speed",
+      "progress": [
+        {
+          "class": "guide-body",
+          "style": "opacity: 1; transform: none;"
+        },
+        {
+          "class": "",
+          "style": "transform: scaleX(0.494933);"
+        }
+      ]
+    },
+    {
+      "check": "guide-detail-open",
+      "data": {
+        "progress": [
+          "opacity: 1; transform: none;",
+          "transform: scaleX(0.619886);"
+        ],
+        "text": "三国前后 · 184—280\n205 年 · 15 / 48\n\n漳水与户调\n\n袁绍死后，儿子互相攻打。曹操围邺，引漳水灌城。邺城北靠太行、南临漳水，是河北平原的锁。城破后他规定：田租每亩四升，每户出绢和丝绵，不许官吏随便加派。河北的粮和兵转到他手里，这套收法后来叫做户调。\n\n展开「曹操攻克邺城」详情\n1.25×"
+      }
+    },
+    {
+      "check": "guide-detail-still-paused",
+      "data": {
+        "progress": [
+          "opacity: 1; transform: none;",
+          "transform: scaleX(0.619886);"
+        ],
+        "text": "三国前后 · 184—280\n205 年 · 15 / 48\n\n漳水与户调\n\n袁绍死后，儿子互相攻打。曹操围邺，引漳水灌城。邺城北靠太行、南临漳水，是河北平原的锁。城破后他规定：田租每亩四升，每户出绢和丝绵，不许官吏随便加派。河北的粮和兵转到他手里，这套收法后来叫做户调。\n\n展开「曹操攻克邺城」详情\n1.25×"
+      }
+    },
+    {
+      "check": "guide-detail-resumed",
+      "data": {
+        "progress": [
+          "opacity: 1; transform: none;",
+          "transform: scaleX(0.641532);"
+        ],
+        "text": "三国前后 · 184—280\n205 年 · 15 / 48\n\n漳水与户调\n\n袁绍死后，儿子互相攻打。曹操围邺，引漳水灌城。邺城北靠太行、南临漳水，是河北平原的锁。城破后他规定：田租每亩四升，每户出绢和丝绵，不许官吏随便加派。河北的粮和兵转到他手里，这套收法后来叫做户调。\n\n展开「曹操攻克邺城」详情\n1.25×"
+      }
+    },
+    {
+      "check": "yinping-dark-map",
+      "data": {
+        "labels": [],
+        "overflow": false,
+        "viewport": [
+          1440,
+          900
+        ]
+      }
+    },
+    {
+      "check": "jiupin-tablet-820",
+      "data": {
+        "aside": {
+          "bottom": 1180,
+          "height": 1104,
+          "left": 430,
+          "right": 820,
+          "top": 76,
+          "width": 390,
+          "x": 430,
+          "y": 76
+        },
+        "buttons": [
+          {
+            "name": "精选故事",
+            "rect": {
+              "bottom": 59.5,
+              "height": 44,
+              "left": 28,
+              "right": 105,
+              "top": 15.5,
+              "width": 77,
+              "x": 28,
+              "y": 15.5
+            }
+          },
+          {
+            "name": "开启本段旁白",
+            "rect": {
+              "bottom": 59.5,
+              "height": 44,
+              "left": 593,
+              "right": 637,
+              "top": 15.5,
+              "width": 44,
+              "x": 593,
+              "y": 15.5
+            }
+          },
+          {
+            "name": "切换深色",
+            "rect": {
+              "bottom": 59.5,
+              "height": 44,
+              "left": 654,
+              "right": 698,
+              "top": 15.5,
+              "width": 44,
+              "x": 654,
+              "y": 15.5
+            }
+          },
+          {
+            "name": "自由探索",
+            "rect": {
+              "bottom": 59.5,
+              "height": 44,
+              "left": 715,
+              "right": 792,
+              "top": 15.5,
+              "width": 77,
+              "x": 715,
+              "y": 15.5
+            }
+          }
+        ],
+        "scrollWidth": 820,
+        "viewport": [
+          820,
+          1180
+        ]
+      }
+    },
+    {
+      "check": "jiupin-mobile-diagram-later",
+      "data": {
+        "expanded": "true",
+        "overflow": false,
+        "selected": [
+          "后来怎样变化"
+        ],
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    },
+    {
+      "check": "jiupin-small-mobile-320",
+      "data": {
+        "aside": {
+          "bottom": 568,
+          "height": 510,
+          "left": 0,
+          "right": 320,
+          "top": 58,
+          "width": 320,
+          "x": 0,
+          "y": 58
+        },
+        "body": {
+          "bottom": 505,
+          "height": 253,
+          "left": 0,
+          "right": 320,
+          "top": 252,
+          "width": 320,
+          "x": 0,
+          "y": 252
+        },
+        "controls": [
+          {
+            "rect": {
+              "bottom": 50.5,
+              "height": 44,
+              "left": 13,
+              "right": 82,
+              "top": 6.5,
+              "width": 69,
+              "x": 13,
+              "y": 6.5
+            },
+            "text": "精选故事"
+          },
+          {
+            "rect": {
+              "bottom": 50.5,
+              "height": 44,
+              "left": 136,
+              "right": 180,
+              "top": 6.5,
+              "width": 44,
+              "x": 136,
+              "y": 6.5
+            },
+            "text": "开启本段旁白"
+          },
+          {
+            "rect": {
+              "bottom": 50.5,
+              "height": 44,
+              "left": 187,
+              "right": 231,
+              "top": 6.5,
+              "width": 44,
+              "x": 187,
+              "y": 6.5
+            },
+            "text": "切换深色"
+          },
+          {
+            "rect": {
+              "bottom": 50.5,
+              "height": 44,
+              "left": 238,
+              "right": 307,
+              "top": 6.5,
+              "width": 69,
+              "x": 238,
+              "y": 6.5
+            },
+            "text": "自由探索"
+          },
+          {
+            "rect": {
+              "bottom": 251,
+              "height": 44,
+              "left": 22,
+              "right": 44,
+              "top": 207,
+              "width": 22,
+              "x": 22,
+              "y": 207
+            },
+            "text": "故事"
+          },
+          {
+            "rect": {
+              "bottom": 251,
+              "height": 44,
+              "left": 70,
+              "right": 92,
+              "top": 207,
+              "width": 22,
+              "x": 70,
+              "y": 207
+            },
+            "text": "人物"
+          },
+          {
+            "rect": {
+              "bottom": 251,
+              "height": 44,
+              "left": 118,
+              "right": 173,
+              "top": 207,
+              "width": 55,
+              "x": 118,
+              "y": 207
+            },
+            "text": "史料与说明"
+          },
+          {
+            "rect": {
+              "bottom": 559,
+              "height": 44,
+              "left": 19,
+              "right": 90,
+              "top": 515,
+              "width": 71,
+              "x": 19,
+              "y": 515
+            },
+            "text": "上一段"
+          },
+          {
+            "rect": {
+              "bottom": 559,
+              "height": 44,
+              "left": 206,
+              "right": 301,
+              "top": 515,
+              "width": 95,
+              "x": 206,
+              "y": 515
+            },
+            "text": "下一段"
+          }
+        ],
+        "footer": {
+          "bottom": 568,
+          "height": 63,
+          "left": 0,
+          "right": 320,
+          "top": 505,
+          "width": 320,
+          "x": 0,
+          "y": 505
+        },
+        "scrollWidth": 320,
+        "viewport": [
+          320,
+          568
+        ]
+      }
+    },
+    {
+      "check": "final-audio-playing",
+      "data": {
+        "label": "暂停本段旁白",
+        "progress": "0 1",
+        "state": "playing"
+      }
+    },
+    {
+      "check": "final-audio-next-paragraph",
+      "data": {
+        "label": "暂停本段旁白",
+        "progress": "0 1",
+        "state": "playing"
+      }
+    },
+    {
+      "check": "final-audio-progress-before-pause",
+      "data": {
+        "progress": "1 1",
+        "state": "ended"
+      }
+    },
+    {
+      "check": "final-audio-replay-and-pause",
+      "data": {
+        "label": "开启本段旁白",
+        "state": "paused"
+      }
+    },
+    {
+      "check": "final-chibi-mobile-390",
+      "data": {
+        "buttons": [
+          {
+            "name": "精选故事",
+            "rect": {
+              "bottom": 50.5,
+              "height": 44,
+              "left": 13,
+              "right": 82,
+              "top": 6.5,
+              "width": 69,
+              "x": 13,
+              "y": 6.5
+            }
+          },
+          {
+            "name": "开启本段旁白",
+            "rect": {
+              "bottom": 50.5,
+              "height": 44,
+              "left": 206,
+              "right": 250,
+              "top": 6.5,
+              "width": 44,
+              "x": 206,
+              "y": 6.5
+            }
+          },
+          {
+            "name": "切换深色",
+            "rect": {
+              "bottom": 50.5,
+              "height": 44,
+              "left": 257,
+              "right": 301,
+              "top": 6.5,
+              "width": 44,
+              "x": 257,
+              "y": 6.5
+            }
+          },
+          {
+            "name": "自由探索",
+            "rect": {
+              "bottom": 50.5,
+              "height": 44,
+              "left": 308,
+              "right": 377,
+              "top": 6.5,
+              "width": 69,
+              "x": 308,
+              "y": 6.5
+            }
+          },
+          {
+            "name": "展开阅读⌃",
+            "rect": {
+              "bottom": 391.0390625,
+              "height": 44,
+              "left": 0,
+              "right": 390,
+              "top": 347.0390625,
+              "width": 390,
+              "x": 0,
+              "y": 347.0390625
+            }
+          },
+          {
+            "name": "故事",
+            "rect": {
+              "bottom": 539.0390625,
+              "height": 44,
+              "left": 22,
+              "right": 44,
+              "top": 495.0390625,
+              "width": 22,
+              "x": 22,
+              "y": 495.0390625
+            }
+          },
+          {
+            "name": "人物",
+            "rect": {
+              "bottom": 539.0390625,
+              "height": 44,
+              "left": 70,
+              "right": 92,
+              "top": 495.0390625,
+              "width": 22,
+              "x": 70,
+              "y": 495.0390625
+            }
+          },
+          {
+            "name": "史料与说明",
+            "rect": {
+              "bottom": 539.0390625,
+              "height": 44,
+              "left": 118,
+              "right": 173,
+              "top": 495.0390625,
+              "width": 55,
+              "x": 118,
+              "y": 495.0390625
+            }
+          },
+          {
+            "name": "上一段",
+            "rect": {
+              "bottom": 835,
+              "height": 44,
+              "left": 19,
+              "right": 90,
+              "top": 791,
+              "width": 71,
+              "x": 19,
+              "y": 791
+            }
+          },
+          {
+            "name": "下一段",
+            "rect": {
+              "bottom": 835,
+              "height": 44,
+              "left": 276,
+              "right": 371,
+              "top": 791,
+              "width": 95,
+              "x": 276,
+              "y": 791
+            }
+          }
+        ],
+        "images": [
+          {
+            "complete": true,
+            "src": "/images/portraits/zhouyu.webp",
+            "width": 1086
+          }
+        ],
+        "mapLabels": [
+          {
+            "rect": {
+              "bottom": 203.296875,
+              "height": 23.5,
+              "left": 134.484375,
+              "right": 186.25,
+              "top": 179.796875,
+              "width": 51.765625,
+              "x": 134.484375,
+              "y": 179.796875
+            },
+            "text": "江陵"
+          },
+          {
+            "rect": {
+              "bottom": 230.1328125,
+              "height": 23.5,
+              "left": 204.578125,
+              "right": 256.34375,
+              "top": 206.6328125,
+              "width": 51.765625,
+              "x": 204.578125,
+              "y": 206.6328125
+            },
+            "text": "赤壁"
+          },
+          {
+            "rect": {
+              "bottom": 191.4140625,
+              "height": 23.5,
+              "left": 237.3984375,
+              "right": 289.1640625,
+              "top": 167.9140625,
+              "width": 51.765625,
+              "x": 237.3984375,
+              "y": 167.9140625
+            },
+            "text": "夏口"
+          },
+          {
+            "rect": {
+              "bottom": 249.4765625,
+              "height": 28,
+              "left": 191.41015625,
+              "right": 235.65234375,
+              "top": 221.4765625,
+              "width": 44.2421875,
+              "x": 191.41015625,
+              "y": 221.4765625
+            },
+            "text": "长江"
+          }
+        ],
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    },
+    {
+      "check": "keyboard-tab-people",
+      "data": {
+        "focus": "人物",
+        "selected": "人物"
+      }
+    },
+    {
+      "check": "keyboard-tab-sources",
+      "data": {
+        "focus": "史料与说明",
+        "links": [
+          {
+            "text": "《三国志》卷五十四 · 周瑜传含裴松之注；风向的东南风表述出自所引《江表传》，须与本传分开。",
+            "url": "https://zh.wikisource.org/wiki/三國志/卷54"
+          }
+        ],
+        "selected": "史料与说明"
+      }
+    },
+    {
+      "check": "final-direct-link-without-opening",
+      "data": {
+        "appClass": "app mode-scene",
+        "heading": "长江的防线，已经变了",
+        "openingCount": 0
+      }
+    },
+    {
+      "check": "library-focus-wrap-last",
+      "data": {
+        "active": "03263年 · 剑阁对峙263年 · 剑阁之外阴平灭蜀守住了剑阁，为什么仍没守住成都？继续第 5 段",
+        "inert": true
+      }
+    },
+    {
+      "check": "library-focus-wrap-first",
+      "data": {
+        "active": "关闭精选故事"
+      }
+    },
+    {
+      "check": "final-library-escape-restores-focus",
+      "data": {
+        "activeLabel": "精选故事",
+        "activeTag": "BUTTON",
+        "dialogCount": 0
+      }
+    },
+    {
+      "check": "final-library-images",
+      "data": {
+        "inert": true,
+        "overflow": false,
+        "portraits": [
+          {
+            "complete": true,
+            "src": "/images/portraits/zhouyu.webp",
+            "width": 1086
+          },
+          {
+            "complete": true,
+            "src": "/images/portraits/chenqun.webp",
+            "width": 1086
+          },
+          {
+            "complete": true,
+            "src": "/images/portraits/dengai.webp",
+            "width": 1086
+          }
+        ]
+      }
+    },
+    {
+      "check": "final-jiupin-sources",
+      "links": [
+        {
+          "text": "《三国志》卷二十二 · 陈群传陈群建法位于曹丕即魏王位之后、践阼称帝之前。",
+          "url": "https://zh.wikisource.org/wiki/三國志_(四庫全書本)/魏志/卷22"
+        },
+        {
+          "text": "《晋书》卷三十六 · 卫瓘传保存对创制背景与后来计资定品的回顾，不是220年的立法原文。",
+          "url": "https://zh.wikisource.org/wiki/晉書/卷036"
+        },
+        {
+          "text": "《晋书》卷四十五 · 刘毅传保存对中正权力、偏私与申诉限制的批评。",
+          "url": "https://zh.wikisource.org/wiki/晉書_(四庫全書本)/卷045"
+        }
+      ]
+    },
+    {
+      "check": "final-camera-after-direct-link",
+      "data": {
+        "labels": [
+          {
+            "rect": {
+              "bottom": 377.0546875,
+              "height": 28,
+              "left": 560.64453125,
+              "right": 618.88671875,
+              "top": 349.0546875,
+              "width": 58.2421875,
+              "x": 560.64453125,
+              "y": 349.0546875
+            },
+            "text": "邺城"
+          },
+          {
+            "rect": {
+              "bottom": 502.34375,
+              "height": 28,
+              "left": 435.13671875,
+              "right": 493.37890625,
+              "top": 474.34375,
+              "width": 58.2421875,
+              "x": 435.13671875,
+              "y": 474.34375
+            },
+            "text": "洛阳"
+          },
+          {
+            "rect": {
+              "bottom": 548.3671875,
+              "height": 28,
+              "left": 502.71484375,
+              "right": 560.95703125,
+              "top": 520.3671875,
+              "width": 58.2421875,
+              "x": 502.71484375,
+              "y": 520.3671875
+            },
+            "text": "颍川"
+          }
+        ],
+        "mapClass": "map maplibregl-map z-mid"
+      }
+    },
+    {
+      "check": "final-camera-library-to-yinping",
+      "data": {
+        "labels": [
+          {
+            "rect": {
+              "bottom": 423.296875,
+              "height": 28,
+              "left": 365.06640625,
+              "right": 423.30859375,
+              "top": 395.296875,
+              "width": 58.2421875,
+              "x": 365.06640625,
+              "y": 395.296875
+            },
+            "text": "阴平"
+          },
+          {
+            "rect": {
+              "bottom": 503.2265625,
+              "height": 28,
+              "left": 446.08203125,
+              "right": 504.32421875,
+              "top": 475.2265625,
+              "width": 58.2421875,
+              "x": 446.08203125,
+              "y": 475.2265625
+            },
+            "text": "剑阁"
+          },
+          {
+            "rect": {
+              "bottom": 667.5078125,
+              "height": 28,
+              "left": 309.54296875,
+              "right": 367.78515625,
+              "top": 639.5078125,
+              "width": 58.2421875,
+              "x": 309.54296875,
+              "y": 639.5078125
+            },
+            "text": "成都"
+          },
+          {
+            "rect": {
+              "bottom": 522.2109375,
+              "height": 33.5,
+              "left": 278.54296875,
+              "right": 331.42578125,
+              "top": 488.7109375,
+              "width": 52.8828125,
+              "x": 278.54296875,
+              "y": 488.7109375
+            },
+            "text": "岷山"
+          }
+        ],
+        "mapClass": "map maplibregl-map z-high"
+      }
+    },
+    {
+      "check": "final-camera-yinping-mobile-resize",
+      "data": {
+        "labels": [
+          {
+            "rect": {
+              "bottom": 191.9453125,
+              "height": 23.5,
+              "left": 169.1171875,
+              "right": 220.8828125,
+              "top": 168.4453125,
+              "width": 51.765625,
+              "x": 169.1171875,
+              "y": 168.4453125
+            },
+            "text": "剑阁"
+          }
+        ],
+        "mapClass": "map maplibregl-map z-high",
+        "overflow": false,
+        "viewport": [
+          390,
+          844
+        ]
+      }
+    },
+    {
+      "check": "final-camera-chibi-desktop-resize",
+      "data": {
+        "mapClass": "map maplibregl-map z-mid",
+        "overflow": false,
+        "viewport": [
+          1440,
+          900
+        ]
+      }
+    },
+    {
+      "check": "final-camera-chibi-desktop-settled",
+      "data": {
+        "audio": "paused",
+        "heading": "长江的防线，已经变了",
+        "labels": [
+          {
+            "rect": {
+              "bottom": 491.5234375,
+              "height": 28,
+              "left": 411.44921875,
+              "right": 469.69140625,
+              "top": 463.5234375,
+              "width": 58.2421875,
+              "x": 411.44921875,
+              "y": 463.5234375
+            },
+            "text": "江陵"
+          },
+          {
+            "rect": {
+              "bottom": 518.3671875,
+              "height": 28,
+              "left": 481.54296875,
+              "right": 539.78515625,
+              "top": 490.3671875,
+              "width": 58.2421875,
+              "x": 481.54296875,
+              "y": 490.3671875
+            },
+            "text": "赤壁"
+          },
+          {
+            "rect": {
+              "bottom": 479.640625,
+              "height": 28,
+              "left": 514.36328125,
+              "right": 572.60546875,
+              "top": 451.640625,
+              "width": 58.2421875,
+              "x": 514.36328125,
+              "y": 451.640625
+            },
+            "text": "夏口"
+          },
+          {
+            "rect": {
+              "bottom": 538.203125,
+              "height": 33.5,
+              "left": 467.29296875,
+              "right": 520.17578125,
+              "top": 504.703125,
+              "width": 52.8828125,
+              "x": 467.29296875,
+              "y": 504.703125
+            },
+            "text": "长江"
+          }
+        ],
+        "mapClass": "map maplibregl-map z-mid"
+      }
+    }
+  ]
+}

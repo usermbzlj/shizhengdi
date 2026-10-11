@@ -1,0 +1,11 @@
+[
+  {
+    "name": "label-guandu",
+    "year": 200.9,
+    "center": [114.15, 34.85],
+    "zoom": 6.4,
+    "settle": 2800,
+    "clip": { "x": 380, "y": 280, "width": 520, "height": 280 },
+    "wait": 400
+  }
+]

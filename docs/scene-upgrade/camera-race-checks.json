@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-09-30T01:44:16.796Z",
+  "command": "node docs/scene-upgrade/camera-race-checks.mjs",
+  "source": "prototype/src/map/mapRef.ts",
+  "sourceSha256": "22cd998f2bbf69419214a61fc06d4ec04362f0389f8177be8f0f2bb01ef3a8c5",
+  "method": "Execute the current flyTo function extracted through the TypeScript AST, with isolated camera ownership state and a FakeMap that emits synchronous moveend on interrupted animation.",
+  "scope": "Camera request ownership, cancellation, pending readiness, event order, cleanup. Does not verify rendered map position, real browser animation, SceneStudio effect wiring, or layout.",
+  "passed": 10,
+  "failed": 0,
+  "cases": [
+    {
+      "id": "old-moveend",
+      "description": "Stopping the old flight settles only the old promise; the new flight remains active.",
+      "status": "passed"
+    },
+    {
+      "id": "stale-abort",
+      "description": "Aborting the old controller cannot stop a newer owned flight.",
+      "status": "passed"
+    },
+    {
+      "id": "owner-abort",
+      "description": "Aborting the current owner stops its flight and removes listeners and timer.",
+      "status": "passed"
+    },
+    {
+      "id": "scene-exit-after-external-flight",
+      "description": "Scene cleanup cannot stop a newer flight started outside the scene without a signal.",
+      "status": "passed"
+    },
+    {
+      "id": "latest-pending-map",
+      "description": "When the map arrives late, only the latest queued request launches.",
+      "status": "passed"
+    },
+    {
+      "id": "aborted-pending-map",
+      "description": "A request aborted before map readiness never starts an animation.",
+      "status": "passed"
+    },
+    {
+      "id": "map-replacement",
+      "description": "A late old map instance cannot receive the queued camera request after replacement.",
+      "status": "passed"
+    },
+    {
+      "id": "timeout-cleanup",
+      "description": "The timeout fallback resolves and removes listeners without forcing a camera stop.",
+      "status": "passed"
+    },
+    {
+      "id": "invalid-or-preaborted",
+      "description": "Invalid coordinates and already-aborted requests do not move the map.",
+      "status": "passed"
+    },
+    {
+      "id": "throwing-map",
+      "description": "A map animation error settles the request and removes its timer and listener.",
+      "status": "passed"
+    }
+  ]
+}

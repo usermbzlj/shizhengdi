@@ -1,0 +1,5 @@
+[
+  { "name": "221-yiling-b", "from": 221.5, "year": 222.2, "animateMs": 1400, "center": [111.4, 30.9], "zoom": 6.1 },
+  { "name": "timeline-208-b", "year": 208.9, "center": [110, 31.5], "zoom": 4.4 },
+  { "name": "195-donggui", "from": 195.5, "year": 196.2, "animateMs": 1600, "center": [110.8, 34.7], "zoom": 6.3 }
+]
