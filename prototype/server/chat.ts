@@ -17,6 +17,13 @@ interface Persona {
   taboo?: string
   fiction_vs_history?: string[]
   fictional?: boolean
+  locations?: { from: number; to: number; place: string }[]
+}
+
+function placeAt(p: Persona, year: number) {
+  const locs = p.locations ?? []
+  const y = Math.floor(year)
+  return (locs.find((l) => l.from <= y && y <= l.to) ?? locs.filter((l) => l.from <= y).at(-1) ?? locs[0])?.place ?? ''
 }
 
 interface ChatBody {
@@ -71,7 +78,7 @@ function sanitize(raw: unknown, persona: Persona): ChatBody | null {
     messages,
     questions: questions.length ? questions : persona.questions.slice(0, 3).map((q) => q.q),
     fromYear: year,
-    fromPlace: clean(b.fromPlace, 40),
+    fromPlace: placeAt(persona, year),
     hometown: clean(b.hometown, 20) || undefined,
   }
 }
