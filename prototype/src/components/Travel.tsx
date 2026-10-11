@@ -22,7 +22,9 @@ interface Trip {
 }
 
 const DONE_Q = '〔问毕〕'
+const HELPED = '〔代答〕'
 const FAREWELL = '〔告别〕'
+const MARKS = /〔(问毕|代答|告别)〕/g
 
 let tripToken = 0
 let motionRaf = 0
@@ -160,6 +162,7 @@ export function Chat({ trip, onBack }: { trip: Trip | null; onBack: () => void }
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [answered, setAnswered] = useState(0)
+  const [helped, setHelped] = useState(0)
   const [done, setDone] = useState(false)
   const questions = useRef<string[]>([])
   const scroller = useRef<HTMLDivElement>(null)
@@ -171,6 +174,7 @@ export function Chat({ trip, onBack }: { trip: Trip | null; onBack: () => void }
     const id = ++req.current
     questions.current = pickQuestions(p)
     setAnswered(0)
+    setHelped(0)
     setDone(false)
     setError(null)
     const first: Msg = {
@@ -212,7 +216,7 @@ export function Chat({ trip, onBack }: { trip: Trip | null; onBack: () => void }
       if (req.current !== mine) return
       if (!res.ok || !res.body) {
         const j = await res.json().catch(() => ({}))
-        throw new Error(j.error === 'no_key' ? 'no_key' : `http_${res.status}`)
+        throw new Error(typeof j.error === 'string' ? j.error : `http_${res.status}`)
       }
       const reader = res.body.getReader()
       const dec = new TextDecoder()
@@ -225,14 +229,24 @@ export function Chat({ trip, onBack }: { trip: Trip | null; onBack: () => void }
         if (req.current === mine) setMsgs((m) => [...m.slice(0, -1), { role: 'assistant', content: text }])
       }
       if (req.current !== mine) return
-      const q = (text.match(/〔问毕〕/g) ?? []).length
-      if (q) setAnswered((a) => Math.min(questions.current.length, a + q))
+      const q = text.split(DONE_Q).length - 1
+      const h = text.split(HELPED).length - 1
+      const cap = questions.current.length
+      if (q) setAnswered((a) => Math.min(cap, a + q))
+      if (h) setHelped((a) => Math.min(cap, a + h))
       if (text.includes(FAREWELL)) setDone(true)
     } catch (e) {
       if ((e as Error).name === 'AbortError' || req.current !== mine) return
       const msg = (e as Error).message
+      if (msg === 'no_key') console.info('[chat] 未配置 DEEPSEEK_API_KEY：在 prototype/.env 写入后重启开发服务器。')
+      if (msg === 'lan_blocked') console.info('[chat] 对谈接口默认只允许本机访问；需要局域网测试时在 .env 设 CHAT_ALLOW_LAN=1。')
+      setMsgs((m) => (m.at(-1)?.role === 'assistant' && history.length < m.length ? m.slice(0, -1) : m))
       setError(
-        msg === 'no_key' ? '他还没能开口。这台机器上还没配好对谈。' : '路断了，稍后再试一次。',
+        msg === 'no_key' || msg === 'lan_blocked'
+          ? '这一版还不能和古人对谈。'
+          : msg === 'busy'
+            ? '他有些应接不暇，歇一会儿再说。'
+            : '路断了，稍后再试一次。',
       )
     } finally {
       if (req.current === mine) setBusy(false)
@@ -253,7 +267,8 @@ export function Chat({ trip, onBack }: { trip: Trip | null; onBack: () => void }
   const visible = msgs.filter((m) => !m.hidden)
   const lastAsk = [...visible].reverse().find((m) => m.role === 'assistant')
   const earlier = visible.filter((m) => m !== lastAsk && m.role === 'user')
-  const askText = lastAsk?.content.replaceAll(DONE_Q, '').replaceAll(FAREWELL, '').trim() ?? ''
+  const askText = lastAsk?.content.replace(MARKS, '').trim() ?? ''
+  const canRetry = !!error && !error.startsWith('这一版') && msgs.at(-1)?.role === 'user'
 
   return (
     <AnimatePresence>
@@ -274,7 +289,7 @@ export function Chat({ trip, onBack }: { trip: Trip | null; onBack: () => void }
               </p>
             </div>
             <span className="visit-step">
-              第 {Math.min(total, answered + (done ? 0 : 1))} 问 / {total}
+              第 {Math.min(total, answered + helped + (done ? 0 : 1))} 问 / {total}
             </span>
           </header>
           <div className="chat-scroll" ref={scroller}>
@@ -283,14 +298,20 @@ export function Chat({ trip, onBack }: { trip: Trip | null; onBack: () => void }
             {error && (
               <div className="visit-error">
                 <p>{error}</p>
-                {error.includes('没配好') && <p className="visit-fine">在 prototype 目录的 .env 写入 DEEPSEEK_API_KEY 后，重启开发服务器。</p>}
+                {canRetry && (
+                  <button type="button" className="link" disabled={busy} onClick={() => send(msgs)}>
+                    再说一次
+                  </button>
+                )}
               </div>
             )}
           </div>
           {done ? (
             <div className="chat-done">
               <p>
-                {p.name}在这个时代留下了一枚印记：你讲明白了 {answered} 个问题。
+                {p.name}在这个时代留下了一枚印记：
+                {answered > 0 ? `你讲明白了 ${answered} 个问题` : '这一次还没有讲明白的问题'}
+                {helped > 0 ? `，另有 ${helped} 个是他替你补上的，值得再想一想。` : '。'}
               </p>
               <button className="cta" onClick={onBack}>
                 送{p.name}回到公元 {Math.floor(trip!.fromYear)} 年

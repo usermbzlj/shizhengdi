@@ -27,7 +27,9 @@ export function featureAt<P>(fc: GeoJSON.FeatureCollection | undefined, pt: [num
 }
 
 const jsonCache = new Map<string, Promise<GeoJSON.FeatureCollection>>()
-export function loadJSON(path: string) {
+
+/** `keep: false` only shares a request while it is in flight; the caller owns the result. */
+export function loadJSON(path: string, { keep = true } = {}) {
   let p = jsonCache.get(path)
   if (!p) {
     p = fetch(`${import.meta.env.BASE_URL}${path}`).then((r) => {
@@ -35,7 +37,8 @@ export function loadJSON(path: string) {
       return r.json() as Promise<GeoJSON.FeatureCollection>
     })
     jsonCache.set(path, p)
-    p.catch(() => jsonCache.delete(path))
+    if (keep) p.catch(() => jsonCache.delete(path))
+    else p.finally(() => jsonCache.delete(path)).catch(() => {})
   }
   return p
 }

@@ -75,7 +75,7 @@ function notifyLoaded() {
 function fetchTransition(i: number) {
   if (i < 0 || i >= transitions.length || cache.has(i) || pending.has(i)) return
   if ((retryAt.get(i) ?? 0) > performance.now()) return
-  const p = loadJSON(`data/transitions/${transitions[i].from}.json`)
+  const p = loadJSON(`data/transitions/${transitions[i].from}.json`, { keep: false })
     .then((d) => {
       cache.set(i, d as GeoJSON.FeatureCollection)
       retryAt.delete(i)
