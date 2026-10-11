@@ -34,6 +34,15 @@
 - mapRef：布局留白更新须等相机移动结束；MapLibre setPadding 内部 jumpTo 会打断 flyTo。已复现并修复，不要在飞行中强制 setPadding。
 - 验收与截图：docs/scene-upgrade/README.md、verification.md、browser-checks.json、asset-checks.json；本机生产预览 http://127.0.0.1:4173/。构建通过；16条lint警告、大包提示、真实AI对话与低端手机性能仍须后续验收。
 
+## 2026-10-11 第一性原则审查与修复
+- 审查报告：docs/first-principles-review-2026-10-11/report.md（结论、十大发现、行动计划）。用户补充：版权、无障碍不考虑。
+- 已建 git（根目录，main）；data/raw、derived、venv 不入库，来源见 data/SOURCES.md，依赖见 data/requirements*.txt。
+- 反向穿越代理：知识截止在出发年；角色/问题/出发地由服务端按 persona 决定；32KB、40条、1200字限制；每IP每分钟20次；默认只允许本机（CHAT_ALLOW_LAN=1 放开）；上游30秒超时。两次追问后模型写〔代答〕，完成数只计学生自己讲明白的。
+- 内容修正：research/fact_corrections.json（每条带 _basis 原典依据），build_map.py 在 scene_event_overrides 之后应用到 events/world/keyframes 都城；新增 230 年卫温到夷洲。旁白 s01/14/18/22/25/27/32/38/39/40/41/42/47 与 cj01/02/06、qh01/02/06 已改并重新配音。
+- build_map.py 不是逐字节可复现：几何坐标和标注在第三位小数有浮点噪声。只改文字数据时，跑完要还原 public/data 几何、gazetteer、keyframes 的噪声，只留有意改动。
+- edge-tts 7.2.8 脆弱（issue #490 自 10-10 起有 403 报告，本机仍可用）；tts.py 先写 .part 再替换，失败不留坏文件。
+- 未做：刘焉/刘璋 194 年前标签；单一事实源数据模型（断言+EDTF 时间）；学生实测实验；打开事件卡自动重播；史实日期与演示进度区分（章节 year 如 s25=220.08 实指 219 秋）。
+
 ## 待办
 - 2026-09-30 用户鼓励大胆创新后：三个场景入口改用 SceneStudio（整页故事现场 / 拆开看看 / 地图手札），BattleLab 支持赤壁3视角与阴平路线/阶段；InstitutionLab 为文书和评价权研究台。切视图保持研究组件挂载；幕次localStorage，视图/研究点/研究选项sessionStorage。旧SceneExperience仍承载SceneHub/SceneMap导出，不再作为主故事入口。
 - 新壳键盘、查阅焦点恢复、320/390/820/740短横屏/1440布局、15幕、音频结束后查阅不自动重播已实际检查。mapRef flyTo 增加AbortSignal和相机请求所有权，m.stop在注册自身moveend前；不要把旧同步moveend误当新请求结束。docs/scene-upgrade/camera-race-checks.mjs 可重跑10项竞争检查。

@@ -46,13 +46,18 @@ def jobs():
 async def synth(rel, text):
     out = AUDIO / rel
     out.parent.mkdir(parents=True, exist_ok=True)
+    tmp = out.with_suffix(".part")
     for attempt in range(3):
         try:
-            await edge_tts.Communicate(text, VOICE, rate=RATE).save(str(out))
+            await edge_tts.Communicate(text, VOICE, rate=RATE).save(str(tmp))
+            if tmp.stat().st_size < 1000:
+                raise RuntimeError("audio too short")
+            tmp.replace(out)
             return True
         except Exception as e:  # service hiccups are common; retry a couple of times
             print(f"  retry {rel}: {e}")
             await asyncio.sleep(2 + attempt * 3)
+    tmp.unlink(missing_ok=True)
     return False
 
 

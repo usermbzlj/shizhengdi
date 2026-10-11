@@ -17,7 +17,8 @@ from shapely.strtree import STRtree
 from shapely.geometry.polygon import orient
 
 from research import blocks, RESEARCH
-from event_overrides import apply_event_overrides
+from event_overrides import (apply_event_overrides, apply_fact_capitals, apply_fact_events, apply_fact_world,
+                             load_fact_corrections)
 
 sys.stdout.reconfigure(encoding="utf-8")
 ROOT = Path(__file__).resolve().parents[1]
@@ -515,6 +516,8 @@ for f in review_for("keyframes.json"):
     for k in keyframes_out:
         if k["id"] == f["id"]:
             k["summary"] = KF_SUMMARY.get(k["id"]) or clean_suggestion(str(f["suggested"]))
+FACTS = load_fact_corrections(RESEARCH / "fact_corrections.json")
+apply_fact_capitals(keyframes_out, FACTS)
 dump(SRC / "keyframes.json", keyframes_out)
 dump(SRC / "factions.json", [{"id": f[0], "name": f[1], "color": f[2], **({"family": f[3]} if f[3] else {})} for f in FACTIONS])
 
@@ -593,6 +596,7 @@ for f in review_for("events.json"):
 # The three finished scenes have newer, source-checked corrections. Apply them
 # last so older research/review notes cannot restore guessed dates or locations.
 apply_event_overrides(events, RESEARCH / "scene_event_overrides.json")
+apply_fact_events(events, FACTS)
 dump(SRC / "events.json", events)
 print("events:", len(events))
 
@@ -611,6 +615,7 @@ for w in we["world_events"]:
         "features": w.get("map_features", []), "summary": w.get("summary", ""), "chinaLink": w.get("china_link", ""),
         "importance": w.get("importance", 2), "sources": w.get("sources", []),
     })
+apply_fact_world(world, FACTS)
 dump(SRC / "world.json", world)
 print("world events:", len(world))
 
