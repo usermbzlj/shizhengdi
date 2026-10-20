@@ -1,5 +1,5 @@
 // Headless screenshots of the prototype for visual checks.
-// usage: node shot.mjs scenes.json <outDir>
+// usage: node shot.mjs scenes/<name>.json <outDir>
 import puppeteer from 'puppeteer-core'
 import { readFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'

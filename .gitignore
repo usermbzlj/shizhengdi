@@ -8,6 +8,11 @@ __pycache__/
 data/raw/
 data/derived/
 
+# Third-party archive tools used once to unpack data/raw
+data/scripts/7zip/
+data/scripts/unrar/
+data/scripts/unrarw64.exe
+
 # Node
 node_modules/
 dist/

@@ -1,3 +1,5 @@
+// Dev only: play the 关键时刻 / 沙盘 scenarios of the board game (src/game/engine.ts) headless.
+// npx rolldown scripts/strategy-sim.ts --platform node --format esm -o $env:TEMP\ss.mjs; node $env:TEMP\ss.mjs
 import { act, endSeason, preview, seasonName, troopsText, type State } from '../src/game/engine'
 import { scenarios } from '../src/game/scenarios'
 

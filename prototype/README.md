@@ -1,6 +1,6 @@
-# 时空地图 · 三国前后（原型）
+# 三国前后（原型）
 
-一张随时间变化的中国地图：拖动底部时间轴，看公元 184—280 年间的疆域、都城、郡治和古地名如何变化；跟着专线从黄巾起义走到三国归晋；点开城市看它的一生；邀请当时当地的古人来到今天，由你讲给他听。
+公元 184—280 年。打开先是游戏大厅：坐到曹操、孙权、刘备的位置上打一场关键时刻，在沙盘里分天下，穿越回汉末去找人，或者跟着十三岁的诸葛亮从山东走到五丈原。大厅底部进入地图资料馆：一张随时间变化的中国地图，可以拖时间轴看疆域、事件和人物，跟着专线走完这段历史。
 
 ## 运行
 
@@ -24,7 +24,19 @@ DEEPSEEK_MODEL=deepseek-flash
 
 保存后重启 `npm run dev`。密钥只在本机的开发服务器里使用，不会发送到浏览器。未配置时，对话窗口会给出提示，其他功能不受影响。
 
-## 功能
+## 入口
+
+| 地址 | 内容 |
+| --- | --- |
+| `/` | 游戏大厅 |
+| `?play=<局>&side=<势力>` | 关键时刻与乱世沙盘，`&resume=1` 接着上次 |
+| `?roam` | 穿越者，`&resume=1` 接着上次 |
+| `?life` | 一个十三岁的男孩（诸葛亮的一生） |
+| `?atlas` | 地图资料馆；`?scene=chibi\|jiupin\|yinping` 直接进精修场景 |
+
+存档在浏览器本地（`szd-war-save`、`szd-roam-save`），带版本号，结构不对会自动丢弃。
+
+## 地图资料馆
 
 - **倒带开场**：从今天的地球回到公元 184 年，城市灯光、铁路、长城、运河依次消失。
 - **时空地图**：势力范围按郡着色，控制薄弱或争夺中的地区颜色更淡；关键帧之间平滑过渡；地名随年代变化；缩放到区域级时出现郡治。
@@ -38,9 +50,12 @@ DEEPSEEK_MODEL=deepseek-flash
 ## 目录
 
 ```
-server/chat.ts        DeepSeek 代理（Vite 开发/预览服务器中间件）
+server/chat.ts        DeepSeek 代理（古人对话、推演列传；Vite 开发/预览服务器中间件）
+src/game/             游戏大厅、关键时刻与沙盘（engine.ts + world.ts）、穿越者、存档
+src/game/tianxia/     “天下”逐日推演引擎与 110 郡棋盘（还没有界面，用 scripts/tianxia-*.ts 推演）
+src/life/             诸葛亮的一生：讲述稿 zhuge.ts、环境声与朗读 sound.ts
 src/map/              地图渲染：样式、疆域过渡、标记
-src/components/       时间轴、面板、专线、开场、对话
+src/components/       资料馆的时间轴、面板、专线、场景、开场、对话
 src/data/*.json       内容数据（由脚本生成，讲述稿除外）
 public/data/          地理数据（疆域、郡、州界、水系、陆地）
 public/terrain/       本地地形瓦片（z0—7，中国范围）
@@ -57,9 +72,19 @@ $env:PYTHONUTF8='1'
 ..\data\.venv\Scripts\python.exe scripts\build_base.py   # 陆地、现代叠加层、现代城市地名
 ..\data\.venv\Scripts\python.exe scripts\build_map.py    # 疆域关键帧、郡、州界、事件、城市、人物、世界大事
 ..\data\.venv\Scripts\python.exe scripts\build_water.py  # 水系、湖泊、线、关隘
-..\data\.venv\Scripts\python.exe scripts\tts.py          # 配音（只重新生成文字有改动的段落）
+..\data\.venv\Scripts\python.exe scripts\tts.py          # 配音（只重新生成文字有改动的段落；--life 只做一生）
 node scripts\fetch-terrain.mjs 7                         # 地形瓦片
+..\data\.venv\Scripts\python.exe scripts\parse_junguo.py      # 《郡国志》户口 → data/derived/junguo_pop.json
+..\data\.venv-geo\Scripts\python.exe scripts\build_tianxia.py # “天下”棋盘 src/game/tianxia/board.json
 ```
+
+`build_map.py` 不是逐字节可复现的，几何坐标在小数点后第三位有浮点噪声（`build_tianxia.py` 未验证，按同样对待）；只改了文字时，提交前把无关的几何变动还原掉。
+
+推演脚本（只在开发时用，先打包再运行，命令写在各文件开头）：
+
+- `scripts/tianxia-verify.ts`：多种子统计乌巢、赤壁等是否从规则里长出来（`wuchao`、`chibi`、`trace`）。
+- `scripts/tianxia-sim.ts`：逐年打印一局“天下”。
+- `scripts/strategy-sim.ts`：无界面跑关键时刻与沙盘。
 
 `src/data/chapters.json`（专线讲述稿）和 `src/data/lines.json`（线的故事）是直接编辑的内容文件，不由脚本生成。
 
@@ -73,6 +98,7 @@ node scripts\fetch-terrain.mjs 7                         # 地形瓦片
 
 ## 已知局限
 
+- edge-tts 自 2026 年 10 月起返回 403，配音暂时无法生成。一生的旁白没有录音，用浏览器自带的朗读或按阅读时长推进；专线与“秦岭—淮河”的五丈原段文字已修正，录音仍是旧文。
 - 郡界是按郡治位置划分、再用县治分布裁出轮廓的近似结果，不是考证过的郡界。靠近郡界的地点可能被划到相邻郡，例如杭州（汉钱唐县）属吴郡，地图上会显示为会稽郡。
 - 周边民族的活动范围是示意性的大致区域。
 - 疆域以约 30 个关键帧表示，两帧之间是渐变过渡，不代表逐年变化。
