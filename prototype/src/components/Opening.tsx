@@ -6,6 +6,8 @@ import { gazetteer } from '../data'
 import { Icon } from './Icon'
 
 const START_YEAR = 184
+/** Inside the Yellow Turban rising (184.1–184.7), so the first view shows the event, not its gathering ring. */
+const ARRIVE_YEAR = 184.2
 const MILESTONES = [
   { year: 1949, text: '铁路与城市的灯火' },
   { year: 1368, text: '明长城' },
@@ -66,6 +68,7 @@ export default function Opening({ onDone }: { onDone: (choice: 'guide' | 'explor
       })
       if (cancelled.current) return
       setState({ modernity: 0 })
+      jumpYear(ARRIVE_YEAR)
       setPhase('arrive')
       flyTo([112, 32.5], 4.6, 2200)
       localStorage.setItem('szd-opened', '1')
@@ -79,7 +82,7 @@ export default function Opening({ onDone }: { onDone: (choice: 'guide' | 'explor
   const skip = () => {
     cancelled.current = true
     setState({ modernity: 0 })
-    jumpYear(START_YEAR)
+    jumpYear(ARRIVE_YEAR)
     setPhase('arrive')
     flyTo([112, 32.5], 4.6, 1200)
     localStorage.setItem('szd-opened', '1')
@@ -128,7 +131,7 @@ export default function Opening({ onDone }: { onDone: (choice: 'guide' | 'explor
               <h1>一个统一了近四百年的王朝，即将走向分裂</h1>
               <p className="op-sub">接下来的一百年，是中国历史上最激烈的群雄角逐。拖动下方的时间轴，看疆域如何变化；或者跟着历史，从头走一遍。</p>
               <div className="op-actions">
-                <button className="cta" onClick={() => onDone('stories')}><Icon name="layers" />从一场故事开始</button>
+                <button className="cta" onClick={() => onDone('stories')}><Icon name="book" />从一场故事开始</button>
                 <button className="cta" onClick={() => onDone('guide')}>
                   <Icon name="play" />
                   跟着历史走

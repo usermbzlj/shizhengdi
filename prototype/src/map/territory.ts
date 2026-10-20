@@ -109,6 +109,36 @@ export function territoryReady(year: number) {
   return cache.has(i)
 }
 
+/** Run a source update and resolve once its tiles have been rebuilt, so paint changes land on the new data. */
+function whenDrawn(map: MLMap, id: string, change: () => Promise<unknown>) {
+  return new Promise<void>((resolve) => {
+    let changed = false
+    let settled = false
+    const finish = () => {
+      if (settled) return
+      settled = true
+      window.clearTimeout(timer)
+      map.off('sourcedata', onData)
+      resolve()
+    }
+    const check = () => {
+      if (changed && map.isSourceLoaded(id)) finish()
+    }
+    const onData = (e: { sourceId?: string }) => {
+      if (e.sourceId !== id || !changed) return
+      check()
+    }
+    const timer = window.setTimeout(finish, 2000)
+    map.on('sourcedata', onData)
+    change()
+      .then(() => {
+        changed = true
+        requestAnimationFrame(check)
+      })
+      .catch(finish)
+  })
+}
+
 // ---- paint ----
 
 const colorOf = (prop: string): ExpressionSpecification =>
@@ -133,7 +163,11 @@ const OPACITY_B: ExpressionSpecification = ['case', ['==', ['get', 'fb'], ''], 0
 
 export class TerritoryController {
   private map: MLMap
+  /** transition whose pieces are on screen */
   private shown = -1
+  /** transition handed to the source but not drawn yet */
+  private loading = -1
+  private job = 0
   private visible = true
   private opacity = { fill: 0.26, wash: 0.68, edge: 0.85 }
   private staticKey = ''
@@ -194,10 +228,34 @@ export class TerritoryController {
     const src = this.map.getSource('terr') as GeoJSONSource | undefined
     const data = cache.get(show)
     if (!src || !data) return
+    if (show === this.shown && this.loading !== -1 && this.loading !== show) {
+      const job = ++this.job
+      this.loading = show
+      whenDrawn(this.map, 'terr', () => src.setData(data)).then(() => {
+        if (this.job !== job) return
+        this.loading = -1
+        this.dynKey = ''
+        if (this.last) this.update(...this.last)
+      })
+      return
+    }
+    if (show === this.shown && this.loading === show) return
+    if (show !== this.shown && show !== this.loading) {
+      const job = ++this.job
+      this.loading = show
+      whenDrawn(this.map, 'terr', () => src.setData(data)).then(() => {
+        if (this.job !== job) return
+        this.loading = -1
+        this.shown = show
+        this.dynKey = ''
+        if (this.last) this.update(...this.last)
+      })
+    }
     if (show !== this.shown) {
-      this.shown = show
-      src.setData(data)
-      this.dynKey = ''
+      // Until the new pieces are on screen, hold the old ones at the keyframe both transitions share;
+      // painting old pieces with the new progress would flash the previous era's borders.
+      if (this.shown < 0) return
+      m = this.shown < show ? 1 : 0
     }
     this.paint(m, this.visible ? dim : 0)
   }

@@ -9,7 +9,7 @@ export type Panel =
   | { kind: 'place'; name: string; lng: number; lat: number }
   | null
 
-export type Mode = 'opening' | 'explore' | 'guide' | 'scene' | 'travel' | 'chat'
+export type Mode = 'opening' | 'explore' | 'guide' | 'scene' | 'travel' | 'chat' | 'life' | 'game' | 'roam'
 
 export interface LayerState {
   territory: boolean
@@ -79,10 +79,14 @@ export function setState(patch: Partial<AppState> | ((s: AppState) => Partial<Ap
   const p = typeof patch === 'function' ? patch(state) : patch
   state = { ...state, ...p }
   if ('hometown' in p || 'theme' in p || 'muted' in p) {
-    localStorage.setItem(
-      'szd-prefs',
-      JSON.stringify({ hometown: state.hometown, theme: state.theme, muted: state.muted }),
-    )
+    try {
+      localStorage.setItem(
+        'szd-prefs',
+        JSON.stringify({ hometown: state.hometown, theme: state.theme, muted: state.muted }),
+      )
+    } catch {
+      /* quota or private mode */
+    }
   }
   listeners.forEach((l) => l())
 }

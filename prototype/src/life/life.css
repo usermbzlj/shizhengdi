@@ -1,0 +1,658 @@
+.life {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.life > * {
+  pointer-events: auto;
+}
+
+.life .life-veil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 42%, transparent 40%, rgba(4, 6, 9, 0.55) 100%),
+    linear-gradient(to top, rgba(4, 6, 9, 0.82) 0%, rgba(4, 6, 9, 0) 38%);
+  transition: background 1.2s var(--ease);
+}
+
+.life.phase-start .life-veil {
+  background: #05070a;
+}
+
+/* ---------- start ---------- */
+
+.life-start {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 24px;
+  text-align: center;
+}
+
+.life-start-kicker {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(28px, 6vw, 44px);
+  letter-spacing: 0.12em;
+}
+
+.life-start-tip {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.life-home {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(320px, 86vw);
+  color: var(--muted);
+  font-size: 14px;
+  text-align: left;
+}
+
+.life-home input {
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.life-home input:focus {
+  outline: none;
+  border-color: rgba(232, 199, 122, 0.6);
+}
+
+.life-home-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.life-home-list button,
+.life-meet button {
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.life-begin {
+  margin-top: 10px;
+  min-width: 140px;
+  height: 48px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font: inherit;
+  font-size: 17px;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+  cursor: pointer;
+}
+
+/* ---------- when / tools ---------- */
+
+.life-when {
+  position: absolute;
+  top: max(18px, env(safe-area-inset-top));
+  left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  pointer-events: none;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.8);
+}
+
+.life-when b {
+  font-family: var(--serif);
+  font-size: clamp(22px, 4.4vw, 30px);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.life-when span {
+  color: rgba(235, 230, 220, 0.72);
+  font-size: 14px;
+}
+
+.life-tools {
+  position: absolute;
+  top: max(18px, env(safe-area-inset-top));
+  right: 18px;
+  display: flex;
+  gap: 6px;
+}
+
+.life-tools button,
+.life-tools a {
+  padding: 7px 12px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(10, 14, 19, 0.5);
+  color: rgba(235, 230, 220, 0.7);
+  font: inherit;
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+/* ---------- captions while time passes ---------- */
+
+.life-captions {
+  position: absolute;
+  top: calc(max(18px, env(safe-area-inset-top)) + 72px);
+  left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: min(420px, 80vw);
+  pointer-events: none;
+}
+
+.life-captions p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
+  animation: life-in 0.6s var(--ease) both;
+}
+
+.life-captions p:not(:last-child) {
+  opacity: 0.45;
+}
+
+.life-captions i {
+  margin-right: 10px;
+  color: var(--accent);
+  font-style: normal;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- narration ---------- */
+
+.life-say {
+  position: absolute;
+  left: 50%;
+  bottom: max(26px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: min(640px, calc(100vw - 36px));
+  text-align: center;
+}
+
+.life-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 3.2em;
+}
+
+.life-lines p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(17px, 2.3vw, 21px);
+  line-height: 1.7;
+  color: rgba(235, 230, 220, 0.42);
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.9);
+  transition: color 0.6s var(--ease);
+  animation: life-in 0.7s var(--ease) both;
+}
+
+.life-lines p.now {
+  color: var(--text);
+}
+
+.life-km {
+  margin: 0;
+  color: var(--accent);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.life-hint {
+  position: relative;
+  overflow: hidden;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(232, 199, 122, 0.12);
+  color: var(--accent);
+  font-size: 14px;
+  animation: life-in 0.6s var(--ease) both, life-breathe 2.6s ease-in-out 0.6s infinite;
+}
+
+.life-hint.hold {
+  padding: 12px 22px;
+  cursor: pointer;
+  touch-action: none;
+  -webkit-touch-callout: none;
+}
+
+.life-hint em {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--accent);
+}
+
+.life-hint.next {
+  padding: 0;
+  background: none;
+  animation: life-in 0.6s var(--ease) both;
+}
+
+.life-hint.next button {
+  padding: 10px 22px;
+  border: 1px solid rgba(232, 199, 122, 0.4);
+  border-radius: 999px;
+  background: rgba(232, 199, 122, 0.1);
+  color: var(--accent);
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.life-talk {
+  padding: 4px 6px;
+  border: none;
+  background: none;
+  color: rgba(235, 230, 220, 0.55);
+  font: inherit;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(235, 230, 220, 0.25);
+  cursor: pointer;
+}
+
+/* ---------- map marks ---------- */
+
+.life-he {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  transition: opacity 1.6s var(--ease);
+}
+
+.life-he.gone {
+  opacity: 0;
+}
+
+.life-he-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #f6dc9b;
+  box-shadow: 0 0 0 4px rgba(246, 220, 155, 0.22), 0 0 22px 6px rgba(246, 220, 155, 0.45);
+  animation: life-pulse 2.4s ease-in-out infinite;
+}
+
+.life-he.walking .life-he-dot {
+  transform: scale(1.35);
+}
+
+.life-he-name {
+  position: absolute;
+  top: 16px;
+  white-space: nowrap;
+  font-size: 13px;
+  color: #f6dc9b;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95);
+}
+
+.life-callout {
+  padding: 4px 12px;
+  border: 1px solid rgba(232, 199, 122, 0.45);
+  border-radius: 999px;
+  background: rgba(10, 14, 19, 0.6);
+  color: var(--accent);
+  font-family: var(--serif);
+  font-size: 16px;
+  pointer-events: none;
+  animation: life-in 0.8s var(--ease) both;
+}
+
+.life-goal {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.life-goal-ring {
+  position: absolute;
+  inset: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 24px rgba(232, 199, 122, 0.55);
+  animation: life-ring 1.8s ease-out infinite;
+}
+
+.life-goal-ring::after {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.life-goal-name {
+  position: absolute;
+  top: 54px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  color: var(--accent);
+  font-family: var(--serif);
+  font-size: 16px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95);
+}
+
+.life-hold {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  cursor: pointer;
+  touch-action: none;
+  -webkit-touch-callout: none;
+}
+
+.life-hold-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(232, 199, 122, 0.55);
+  animation: life-ring 2.2s ease-out infinite;
+}
+
+.life-hold-core {
+  position: absolute;
+  inset: 30px;
+  border-radius: 50%;
+  background: rgba(232, 199, 122, 0.22);
+  box-shadow: 0 0 30px rgba(232, 199, 122, 0.35);
+  transition: transform 0.4s var(--ease), background 0.4s;
+}
+
+.life-hold.on .life-hold-core {
+  transform: scale(1.5);
+  background: rgba(232, 199, 122, 0.4);
+}
+
+.life-hold.on .life-hold-ring {
+  animation-duration: 0.9s;
+}
+
+/* ---------- ending ---------- */
+
+.life-end {
+  position: absolute;
+  left: 50%;
+  bottom: max(24px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: min(620px, calc(100vw - 32px));
+  text-align: center;
+  animation: life-in 1s var(--ease) both;
+}
+
+.life-end p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(16px, 2.2vw, 19px);
+  line-height: 1.7;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.9);
+}
+
+.life-end blockquote {
+  margin: 8px 0 0;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(10, 14, 19, 0.62);
+  color: rgba(235, 230, 220, 0.86);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-user-select: text;
+  user-select: text;
+  backdrop-filter: blur(8px);
+}
+
+.life-end-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.life-end-actions button {
+  padding: 9px 18px;
+  border: 1px solid rgba(232, 199, 122, 0.4);
+  border-radius: 999px;
+  background: rgba(232, 199, 122, 0.1);
+  color: var(--accent);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.life-meet {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ---------- talking with him ---------- */
+
+.life-chat {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: min(380px, calc(100vw - 24px));
+  height: min(460px, 62vh);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(10, 14, 19, 0.9);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(14px);
+  animation: life-in 0.45s var(--ease) both;
+}
+
+.life-chat header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.life-chat header div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.life-chat header b {
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.life-chat header span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.life-chat header button {
+  border: none;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.life-chat-scroll {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.life-chat-scroll p {
+  margin: 0;
+  max-width: 88%;
+  padding: 9px 12px;
+  border-radius: 14px;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.life-chat-scroll p.assistant {
+  align-self: flex-start;
+  background: rgba(232, 199, 122, 0.1);
+  font-family: var(--serif);
+}
+
+.life-chat-scroll p.user {
+  align-self: flex-end;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.life-chat-scroll .life-chat-empty,
+.life-chat-scroll .life-chat-error {
+  align-self: center;
+  max-width: none;
+  padding: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.life-chat form {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px 12px;
+}
+
+.life-chat input {
+  flex: 1;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+}
+
+.life-chat form button {
+  width: 52px;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.life-chat form button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+@media (max-width: 640px) {
+  .life-chat {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    width: auto;
+    height: 58vh;
+  }
+
+  .life-captions {
+    top: calc(max(14px, env(safe-area-inset-top)) + 64px);
+    left: 16px;
+  }
+
+  .life-when {
+    left: 16px;
+  }
+}
+
+@keyframes life-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes life-breathe {
+  50% {
+    background: rgba(232, 199, 122, 0.2);
+  }
+}
+
+@keyframes life-pulse {
+  50% {
+    box-shadow: 0 0 0 7px rgba(246, 220, 155, 0.12), 0 0 30px 10px rgba(246, 220, 155, 0.5);
+  }
+}
+
+@keyframes life-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}

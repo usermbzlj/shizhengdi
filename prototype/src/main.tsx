@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 import App from "./App";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 import { sceneById } from "./data/scenes";
 import { setState } from "./lib/store";
 
@@ -13,6 +14,8 @@ if (requestedScene && sceneById.has(requestedScene)) {
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </StrictMode>,
 );

@@ -13,6 +13,24 @@ import { startPlayback } from "./lib/playback";
 import { SceneHub } from "./components/SceneExperience";
 import SceneStudio from "./components/SceneStudio";
 import { sceneById } from "./data/scenes";
+import Life from "./life/Life";
+import Hub from "./game/Hub";
+import Strategy from "./game/Strategy";
+import Traveler from "./game/Traveler";
+import { scenarioById } from "./game/scenarios";
+
+const params = new URLSearchParams(window.location.search);
+const lifeSample = params.has("life");
+const play = params.get("play");
+const route: "life" | "play" | "roam" | "atlas" | "hub" = lifeSample
+  ? "life"
+  : play && scenarioById.has(play)
+    ? "play"
+    : params.has("roam")
+      ? "roam"
+      : params.has("atlas") || params.has("scene")
+        ? "atlas"
+        : "hub";
 
 const requestedScene = new URLSearchParams(window.location.search).get("scene");
 const linkedScene =
@@ -39,6 +57,53 @@ function chapterScript(): GuideScript | null {
 }
 
 export default function App() {
+  if (route === "life") return <LifeSample />;
+  if (route === "atlas") return <Main />;
+  return <Game />;
+}
+
+function Game() {
+  const sc = play ? scenarioById.get(play) : undefined;
+  const side =
+    sc?.picks.find((p) => p.side === params.get("side"))?.side ??
+    sc?.picks[0].side ??
+    "";
+  useEffect(() => {
+    document.documentElement.dataset.theme = "dark";
+  }, []);
+  return (
+    <div className={`app mode-${route === "roam" ? "roam" : "game"}`}>
+      <div className="app-content">
+        <MapView />
+        {route === "hub" && <Hub />}
+        {route === "play" && sc && (
+          <Strategy
+            scenarioId={sc.id}
+            side={side}
+            resume={params.get("resume") === "1"}
+          />
+        )}
+        {route === "roam" && <Traveler resume={params.get("resume") === "1"} />}
+      </div>
+    </div>
+  );
+}
+
+function LifeSample() {
+  useEffect(() => {
+    document.documentElement.dataset.theme = "dark";
+  }, []);
+  return (
+    <div className="app mode-life">
+      <div className="app-content">
+        <MapView />
+        <Life />
+      </div>
+    </div>
+  );
+}
+
+function Main() {
   const mode = useStore((s) => s.mode);
   const theme = useStore((s) => s.theme);
   const [script, setScript] = useState<GuideScript | null>(null);

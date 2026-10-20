@@ -67,6 +67,7 @@ export default function MapView() {
     let prev: Partial<AppState> = {}
     let lastPeripheryYear = NaN
     let lastProvinceKey = ''
+    let lastLinesKey: string | null = null
     let lastYear = -Infinity
     let hideRoutes = false
     let zoomBucket = ''
@@ -100,7 +101,8 @@ export default function MapView() {
       if (s.theme !== prev.theme) applyTheme(map, s.theme, ctrl)
 
       const modern = s.modernity
-      ctrl.setVisible(sceneView || s.layers.territory)
+      const board = s.mode === 'game'
+      ctrl.setVisible(!board && (sceneView || s.layers.territory))
       ctrl.update(year, 1 - modern)
       setOpacity(map, 'modern-rail', 'line-opacity', 0.75 * Math.min(1, Math.max(0, (modern - 0.55) / 0.45)))
       setOpacity(map, 'modern-heritage', 'line-opacity', 0.85 * Math.min(1, Math.max(0, (modern - 0.12) / 0.3)))
@@ -134,18 +136,23 @@ export default function MapView() {
       const activeLines = sceneView ? [] : Object.entries(s.layers.lines)
         .filter(([, v]) => v)
         .map(([k]) => k)
-      const lf: FilterSpecification = ['in', ['get', 'id'], ['literal', activeLines]]
-      map.setFilter('lines-glow', lf)
-      map.setFilter('lines-core', lf)
+      const linesKey = activeLines.join('|')
+      if (linesKey !== lastLinesKey) {
+        lastLinesKey = linesKey
+        const lf: FilterSpecification = ['in', ['get', 'id'], ['literal', activeLines]]
+        map.setFilter('lines-glow', lf)
+        map.setFilter('lines-core', lf)
+      }
 
-      const showHistory = modern < 0.5
+      const showHistory = modern < 0.5 && !board
       const density = eventDensity(s)
       const step = year - lastYear
       const forward = step > 0 && step < 0.25
       lastYear = year
-      const evMarks = showHistory ? eventMarkers(year, s, forward, density) : []
+      const roam = s.mode === 'roam'
+      const evMarks = showHistory && !roam ? eventMarkers(year, s, forward, density) : []
       const visibleEvents = new Set(evMarks.map((m) => m.id.slice(3)))
-      let active = showHistory && s.mode !== 'scene' ? activeTracks(year) : []
+      let active = showHistory && !roam && s.mode !== 'scene' ? activeTracks(year) : []
       if (density !== 'all') active = active.filter((a) => !!a.track.eventId && visibleEvents.has(a.track.eventId))
       const eventId = s.panel?.kind === 'event' ? s.panel.id : ''
       const marching = !!eventId && active.some((a) => a.track.eventId === eventId && a.progress < 0.995)
@@ -156,13 +163,13 @@ export default function MapView() {
       renderTracks(map, active, 1 - modern)
 
       pools.labels.sync(showHistory && s.layers.territory ? factionLabels(year) : [])
-      pools.capitals.sync(showHistory ? capitalMarkers(year) : [])
-      pools.cities.sync(showHistory && s.mode !== 'guide' ? cityMarkers(year) : [])
+      pools.capitals.sync(showHistory && !roam && s.mode !== 'life' ? capitalMarkers(year) : [])
+      pools.cities.sync(showHistory && !roam && s.mode !== 'guide' && s.mode !== 'life' ? cityMarkers(year) : [])
       pools.events.sync(evMarks)
       pools.tracks.sync(showHistory ? trackLabels(active) : [])
-      pools.people.sync(peopleMarks(year, s, map.getZoom()))
+      pools.people.sync(board ? [] : peopleMarks(year, s, map.getZoom()))
       pools.passes.sync(showHistory && s.layers.passes ? passMarkers() : [])
-      pools.home.sync(homeMarker(s))
+      pools.home.sync(board || roam ? [] : homeMarker(s))
       prev = s
       scheduleDeclutter()
     }
@@ -463,13 +470,17 @@ function cityMarkers(year: number): MarkerItem[] {
     for (const g of keyframes[shownIndex(index, next, mix)].seats) {
       if (capitalSpots.has(`${g.lng.toFixed(1)},${g.lat.toFixed(1)}`)) continue
       out.push({
-        id: `seat-${g.name}`,
+        id: `seat-${g.lng.toFixed(2)},${g.lat.toFixed(2)}`,
         lngLat: [g.lng, g.lat],
         p: 20,
         render: () => {
           const n = el('div', 'seat')
           n.append(el('span', 'seat-dot'), el('span', 'seat-name', g.name))
           return n
+        },
+        update: (n) => {
+          const name = n.querySelector('.seat-name')!
+          if (name.textContent !== g.name) name.textContent = g.name
         },
       })
     }
@@ -489,7 +500,7 @@ function paintEventLabel(label: HTMLElement, e: (typeof events)[number]) {
 
 /** all = the whole field; now = only what is happening; one = the event the story is standing on. */
 function eventDensity(s: AppState): 'all' | 'now' | 'one' {
-  if (s.mode === 'guide') return 'one'
+  if (s.mode === 'guide' || s.mode === 'life') return 'one'
   if (s.layers.events) return 'all'
   return 'now'
 }
@@ -778,9 +789,10 @@ function homeMarker(s: AppState): MarkerItem[] {
       z: 40,
       render: () => {
         const n = el('div', 'home')
-        n.append(el('span', 'home-pin'), el('span', 'home-label', '家乡'))
+        n.append(el('span', 'home-pin'), el('span', 'home-label', s.mode === 'life' ? '你家' : '家乡'))
         n.addEventListener('click', (ev) => {
           ev.stopPropagation()
+          if (getState().mode === 'life') return
           openExplore({ panel: { kind: 'place', name: g.name, lng: g.lng, lat: g.lat } })
         })
         return n

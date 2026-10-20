@@ -43,6 +43,13 @@
 - edge-tts 7.2.8 脆弱（issue #490 自 10-10 起有 403 报告，本机仍可用）；tts.py 先写 .part 再替换，失败不留坏文件。
 - 未做：刘焉/刘璋 194 年前标签；单一事实源数据模型（断言+EDTF 时间）；学生实测实验；打开事件卡自动重播；史实日期与演示进度区分（章节 year 如 s25=220.08 实指 219 秋）。
 
+## 2026-10-13—10-20 转向玩法
+- 用户 10-13 拍板：做成好玩、耐玩、有真知识的游戏（天下/匠作/穿越者/一念等），不廉价、不急 MVP；脏活派 Grok 子代理。设计稿 docs/play-design-2026-10-13/。
+- 默认路由已是游戏大厅 Hub（App.tsx）；资料馆在 ?atlas。Hub/Strategy 用旧战棋 engine.ts+world.ts；“天下” src/game/tianxia/ 无界面，只由 scripts/tianxia-verify.ts 推演（推敲稿六点八有最新数字与“按史实硬触发”清单）。
+- 10-20 审查修复：户口解析器丢“万”（parse_junguo.py，board.json 9 郡已更正）、棋盘连通（补 4 边）、五丈原两军皆在渭南（events/chapters/lines/persons 与 fact_corrections）、roster/policies 等演义与籍贯错误；天下引擎君主跳槽/议和困军/分兵百姓/引力自损等；界面存档 v1 校验+ErrorBoundary、首动作后才存档、游戏页主题不写偏好、Life 模式误切、whenDrawn 竞态；chat.ts beside/met 的年份/地点/处境改由服务端决定。
+- 未提交；10-20 修改前的完整工作区备份在 refs/backup/pre-review-2026-10-20。
+- edge-tts 仍 403：Life 配音一段都没有（走浏览器语音），chapters 五丈原段与 lines qh 五丈原段文字已改、录音仍是旧文。需换配音服务。
+
 ## 待办
 - 2026-09-30 用户鼓励大胆创新后：三个场景入口改用 SceneStudio（整页故事现场 / 拆开看看 / 地图手札），BattleLab 支持赤壁3视角与阴平路线/阶段；InstitutionLab 为文书和评价权研究台。切视图保持研究组件挂载；幕次localStorage，视图/研究点/研究选项sessionStorage。旧SceneExperience仍承载SceneHub/SceneMap导出，不再作为主故事入口。
 - 新壳键盘、查阅焦点恢复、320/390/820/740短横屏/1440布局、15幕、音频结束后查阅不自动重播已实际检查。mapRef flyTo 增加AbortSignal和相机请求所有权，m.stop在注册自身moveend前；不要把旧同步moveend误当新请求结束。docs/scene-upgrade/camera-race-checks.mjs 可重跑10项竞争检查。

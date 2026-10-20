@@ -7,6 +7,7 @@ import { getState, setState, type AppState } from './store'
  */
 export function openExplore(patch: Partial<AppState>) {
   const mode = getState().mode
+  if (mode === 'life' || mode === 'game' || mode === 'roam') return
   if (mode === 'explore') {
     setState(patch)
     return

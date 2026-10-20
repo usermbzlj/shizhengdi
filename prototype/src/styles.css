@@ -556,6 +556,11 @@ html.scrubbing .mk.mk-enter {
   opacity: 0 !important;
 }
 
+.mk.mk-leave {
+  transition-duration: 0.18s;
+  pointer-events: none;
+}
+
 /* globe view: territories only */
 .z-globe .mk {
   display: none !important;

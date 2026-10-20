@@ -5,7 +5,8 @@
 .app .timeline .tl-head { top: 8px; }
 .app .timeline .tl-head-knob { top: 0; width: 10px; height: 10px; left: -5px; }
 .app .timeline .tl-head-line { bottom: 8px; opacity: .55; box-shadow: none; }
-.app .timeline .tl-readout { top: -76px; }
+.app .timeline .tl-readout { top: -78px; z-index: 5; padding: 0 10px 2px; border-radius: 8px; background: color-mix(in srgb, var(--bg) 96%, transparent); }
+.app .timeline .tl-band-label { bottom: 5px; line-height: 1; }
 .tl-scrub { position: absolute; inset: 0 0 auto; height: 31px; z-index: 2; border-radius: 4px; }
 .tl-scrub:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .tl-cluster { position: absolute; transform: translateX(-50%); width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; gap: 2px; padding: 0; color: var(--text-2); border: 1px solid transparent; border-radius: 8px; background: transparent; cursor: pointer; touch-action: manipulation; z-index: 3; }

@@ -212,6 +212,8 @@ function partial(tr: Track, f: number): LngLat[] {
   return [...tr.path.slice(0, index), head]
 }
 
+const wasEmpty = new WeakMap<MLMap, boolean>()
+
 /** Push the current frame of all animated paths into the map sources. */
 export function renderTracks(map: MLMap, active: ActiveTrack[], dim: number) {
   const lines: GeoJSON.Feature[] = []
@@ -232,6 +234,9 @@ export function renderTracks(map: MLMap, active: ActiveTrack[], dim: number) {
       })
     }
   }
+  const empty = !lines.length && !heads.length
+  if (empty && wasEmpty.get(map)) return
+  wasEmpty.set(map, empty)
   ;(map.getSource('anim-line') as GeoJSONSource | undefined)?.setData({ type: 'FeatureCollection', features: lines })
   ;(map.getSource('anim-head') as GeoJSONSource | undefined)?.setData({ type: 'FeatureCollection', features: heads })
 }

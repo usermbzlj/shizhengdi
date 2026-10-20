@@ -7,7 +7,7 @@ let paddingFrame = 0;
 let cancelDeferredPadding: (() => void) | null = null;
 let cameraRequest = 0;
 const OCCLUDERS =
-  ".topbar, .timeline, .panel, .guide, .chat, .scene-reading, .scene-sidebar, .scene-header, .studio-header, .studio-footer, .studio-map-note";
+  ".topbar, .timeline, .panel, .guide, .chat, .life-say, .life-end, .scene-reading, .scene-sidebar, .scene-header, .studio-header, .studio-footer, .studio-map-note, .g-hud, .g-sheet, .r-sheet";
 
 export function setMap(m: MLMap | null) {
   stopWatching?.();

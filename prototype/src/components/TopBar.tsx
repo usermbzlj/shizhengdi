@@ -276,11 +276,11 @@ export default function TopBar({
 
   return (
     <header className={`topbar${mode === "opening" ? " hidden" : ""}`}>
-      <div className="brand">
+      <a className="brand" href="./" title="回大厅" style={{ color: 'inherit', textDecoration: 'none' }}>
         <span className="brand-mark" />
         <span className="brand-name">时空地图</span>
-        <span className="brand-sub">三国前后</span>
-      </div>
+        <span className="brand-sub">资料馆</span>
+      </a>
 
       <SearchBox />
 
@@ -290,7 +290,7 @@ export default function TopBar({
           onClick={onStories}
           aria-label="精选故事"
         >
-          <Icon name="layers" />
+          <Icon name="book" />
           <span>精选故事</span>
         </button>
         <button className="tool guide-btn" onClick={onGuide}>

@@ -341,7 +341,7 @@ export default function GuidePlayer({
               {script.subtitle && <em> · {script.subtitle}</em>}
             </span>
             <span className="guide-count">
-              {Math.floor(year)} 年 · {Math.min(i + 1, script.steps.length)} / {script.steps.length}
+              {hold ? Math.floor(year) : (ev?.year ?? Math.floor(step.year))} 年 · {Math.min(i + 1, script.steps.length)} / {script.steps.length}
             </span>
             <button className="guide-x" onClick={onExit} aria-label="退出">
               <Icon name="close" size={16} />
