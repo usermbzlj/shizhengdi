@@ -1,4 +1,4 @@
-import type { Trait } from '../world'
+export type Trait = 'navy' | 'fire' | 'raid' | 'wall' | 'cavalry' | 'mountain' | 'supply' | 'wit'
 
 export type Fid = 'cao' | 'yuan' | 'sun' | 'liubei' | 'liubiao' | 'liuzhang' | 'zhanglu' | 'ma' | 'gongsun' | 'shixie'
 

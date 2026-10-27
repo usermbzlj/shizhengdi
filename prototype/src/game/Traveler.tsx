@@ -6,7 +6,6 @@ import { animateYear, getState, jumpYear, setState } from '../lib/store'
 import { distanceKm, events, eventTime, personById, personLocationAt, persons } from '../data'
 import type { Person } from '../data/types'
 import { neighbors, placeById, places, routes, routeWords, type LngLat, type RouteKind } from './world'
-import { SEASONS } from './engine'
 import { saveRoam, savedRoam } from './saves'
 import '../life/life.css'
 import './game.css'
@@ -51,6 +50,7 @@ const aliveAt = (p: Person, y: number) => {
   const d = num(p.death)
   return (b === null || y >= b) && (d === null || y < d + 1)
 }
+const SEASONS = ['春', '夏', '秋', '冬'] as const
 const seasonOf = (y: number) => SEASONS[Math.min(3, Math.floor((y % 1) * 4))]
 
 function presentAt(at: string, year: number) {

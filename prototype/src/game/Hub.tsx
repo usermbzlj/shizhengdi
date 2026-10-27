@@ -1,16 +1,11 @@
 import { useEffect } from 'react'
 import { setState } from '../lib/store'
 import { flyTo } from '../map/mapRef'
-import { savedGame, savedRoam } from './saves'
-import { scenarioById, scenarios } from './scenarios'
-import { sideOf } from './sides'
+import { savedRoam } from './saves'
 import './game.css'
 
 export default function Hub() {
-  const war = savedGame()
   const roam = savedRoam()
-  const moments = scenarios.filter((s) => s.id !== 'sandbox')
-  const sandbox = scenarioById.get('sandbox')!
 
   useEffect(() => {
     setState({ mode: 'game', panel: null, year: 208, target: 208 })
@@ -25,45 +20,6 @@ export default function Hub() {
           <p>公元 184 — 280</p>
           <h1>这一回，你来。</h1>
         </header>
-
-        <section className="hub-group">
-          <h2>关键时刻</h2>
-          <p className="hub-sub">真实的地形，真实的兵力。你坐到那个人的位置上。</p>
-          <div className="hub-cards">
-            {moments.map((sc) => (
-              <article key={sc.id} className="hub-card">
-                <span className="hub-when">{sc.when}</span>
-                <h3>{sc.title}</h3>
-                <p>{sc.hook}</p>
-                <div className="hub-picks">
-                  {sc.picks.map((p) => (
-                    <a key={p.side} href={`?play=${sc.id}&side=${p.side}`} style={{ ['--c' as string]: sideOf(p.side).color }} title={p.blurb}>
-                      当{p.who}
-                    </a>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="hub-group">
-          <h2>乱世沙盘</h2>
-          <p className="hub-sub">{sandbox.when}，{sandbox.hook}</p>
-          <div className="hub-cards wide">
-            {sandbox.picks.map((p) => (
-              <a key={p.side} className="hub-lord" href={`?play=sandbox&side=${p.side}`} style={{ ['--c' as string]: sideOf(p.side).color }}>
-                <b>{p.who}</b>
-                <span>{p.blurb}</span>
-              </a>
-            ))}
-          </div>
-          {war && (
-            <a className="hub-resume" href={`?play=${war.scenario}&side=${war.state.player}&resume=1`}>
-              接着上次：{sideOf(war.state.player).name}，{war.state.year} 年
-            </a>
-          )}
-        </section>
 
         <section className="hub-group two">
           <article className="hub-card tall">

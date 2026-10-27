@@ -15,22 +15,17 @@ import SceneStudio from "./components/SceneStudio";
 import { sceneById } from "./data/scenes";
 import Life from "./life/Life";
 import Hub from "./game/Hub";
-import Strategy from "./game/Strategy";
 import Traveler from "./game/Traveler";
-import { scenarioById } from "./game/scenarios";
 
 const params = new URLSearchParams(window.location.search);
 const lifeSample = params.has("life");
-const play = params.get("play");
-const route: "life" | "play" | "roam" | "atlas" | "hub" = lifeSample
+const route: "life" | "roam" | "atlas" | "hub" = lifeSample
   ? "life"
-  : play && scenarioById.has(play)
-    ? "play"
-    : params.has("roam")
-      ? "roam"
-      : params.has("atlas") || params.has("scene")
-        ? "atlas"
-        : "hub";
+  : params.has("roam")
+    ? "roam"
+    : params.has("atlas") || params.has("scene")
+      ? "atlas"
+      : "hub";
 
 const requestedScene = new URLSearchParams(window.location.search).get("scene");
 const linkedScene =
@@ -63,11 +58,6 @@ export default function App() {
 }
 
 function Game() {
-  const sc = play ? scenarioById.get(play) : undefined;
-  const side =
-    sc?.picks.find((p) => p.side === params.get("side"))?.side ??
-    sc?.picks[0].side ??
-    "";
   useEffect(() => {
     document.documentElement.dataset.theme = "dark";
   }, []);
@@ -76,13 +66,6 @@ function Game() {
       <div className="app-content">
         <MapView />
         {route === "hub" && <Hub />}
-        {route === "play" && sc && (
-          <Strategy
-            scenarioId={sc.id}
-            side={side}
-            resume={params.get("resume") === "1"}
-          />
-        )}
         {route === "roam" && <Traveler resume={params.get("resume") === "1"} />}
       </div>
     </div>
